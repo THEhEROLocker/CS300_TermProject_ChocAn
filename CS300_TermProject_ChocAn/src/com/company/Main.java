@@ -8,8 +8,8 @@ public class Main {
     public Customer login (String[]user, String[]pass) {
         return null;
     }
-    public static void main(String[] args) {
-	// write your code here
-        // test... -tkh-
-    }
+    public static void main(String[] args) {}
+
+    public Customer loginCustomer (String login) {}
+    public Customer loginProvider (String login) {}
 }
