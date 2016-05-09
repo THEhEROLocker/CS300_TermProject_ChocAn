@@ -10,6 +10,6 @@ public class Main {
     }
     public static void main(String[] args) {}
 
-    public Customer loginCustomer (String login) {}
-    public Customer loginProvider (String login) {}
+    private Customer loginCustomer (String login) {}
+    private Customer loginProvider (String login) {}
 }
