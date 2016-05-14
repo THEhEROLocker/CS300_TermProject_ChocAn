@@ -4,6 +4,21 @@ import java.io.*;
 
 /**
  * Created by hERO on 05/11/15.
+ * Usage:
+ *
+ *      fileReader myReader = new fileReader(<path to file>);
+ *      String[] fileData = null;
+ *
+ *      try{
+ *          fileData = myReader.ReadFileData(); // returns all the lines in the file as an array of strings. This needs 
+ *                                              // to be parsed further in the funciton that is calling it and break down 
+ *                                              // every line into pieces and change the data type for each piece to macth 
+ *                                              // what the constructor of that class requires
+ *      }
+ *      catch(IOException badShitHappened){
+ *          System.out.println(badShitHappened.getMessage());
+ *          System.out.println("File IO just shit itself");
+ *      }
  */
 public class fileReader {
     private String filePath = null;
