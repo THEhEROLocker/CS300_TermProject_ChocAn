@@ -14,7 +14,7 @@ public class serviceDirectory extends fileReader{
     private HashMap<Integer, Service> serDir = new HashMap<Integer, Service>();
 
     public void insertService(Service toAdd){
-        serDir.put(toAdd.getServiceNumber(), toAdd.clone());
+        serDir.put(toAdd.getServiceNumber(), new Service(toAdd));
     }
 
     //This function deletes a service given the service number as a key to HashMap
