@@ -2,7 +2,9 @@ package company;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Created by eynis on 5/15/16.
@@ -10,6 +12,19 @@ import java.util.HashMap;
 public class serviceDirectory extends fileReader{
 
     public serviceDirectory(){
+        super("Service.txt");
+        try{
+            readFromFile();
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+
+        Collection<Service> temp = serDir.values();
+        Iterator<Service> temp2 = temp.iterator();
+
+        while(temp2.hasNext()){
+            temp2.next().display();
+        }
 
     }
 
@@ -17,11 +32,12 @@ public class serviceDirectory extends fileReader{
 
     private int readFromFile() throws IOException{
         String[] filedata = null;
-        int lineCount = getNumberOfLines();
+        int lineCount = 0;
         Service toAdd;
 
         try{
             filedata = ReadFileData();
+            lineCount = getNumberOfLines();
         }
         catch (IIOException itFreakedOut){
             System.out.println(itFreakedOut.getMessage());

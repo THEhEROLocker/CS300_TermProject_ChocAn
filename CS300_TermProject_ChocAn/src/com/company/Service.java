@@ -23,4 +23,8 @@ public class Service extends basicService {
         super.serviceNumber = serviceNumber;
         this.serviceCost = serviceCost;
     }
+
+    public void display(){
+        System.out.println(serviceName + " " + serviceNumber + " " + serviceCost);
+    }
 }
