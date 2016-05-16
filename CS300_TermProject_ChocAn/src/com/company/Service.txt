@@ -1,6 +1,6 @@
 Service code:Provider Name:Fee of Service:
-76876:Juan Douglas:$45.50:
-79897:Billy Bob:$50.00:
-76567:Sarah Ruffhousin:$20.00:
-79843:Jane Workhorse:$25.00:
-72125:Dirk Diggler:$89.00:
+76876:Juan Douglas:45.50:
+79897:Billy Bob:50.00:
+76567:Sarah Ruffhousin:20.00:
+79843:Jane Workhorse:25.00:
+72125:Dirk Diggler:89.00:

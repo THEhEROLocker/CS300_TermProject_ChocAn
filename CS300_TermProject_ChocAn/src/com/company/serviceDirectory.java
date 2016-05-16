@@ -29,7 +29,9 @@ public class serviceDirectory extends fileReader{
 
         for(int i =1; i < lineCount; ++i){
             String[] toParse = filedata[i].split(":");
-            toAdd = new Service(toParse[0],,null);
+            toAdd = new Service(toParse[1],Integer.parseInt(toParse[0]),Float.parseFloat(toParse[2]));
+
+            insertService(toAdd); //calling the insert function
         }
 
 
@@ -37,7 +39,7 @@ public class serviceDirectory extends fileReader{
     }
 
     public void insertService(Service toAdd){
-        serDir.put(toAdd.getServiceNumber(), toAdd.clone());
+        serDir.put(toAdd.getServiceNumber(), new Service(toAdd));
     }
 
     //This function deletes a service given the service number as a key to HashMap

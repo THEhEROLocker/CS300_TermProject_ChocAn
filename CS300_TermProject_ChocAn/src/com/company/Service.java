@@ -5,11 +5,11 @@ package company;
 
 public class Service extends basicService {
 
-    protected int serviceCost;
+    protected float serviceCost;
 
     public Service(){}
 
-    public int getServiceCost() {
+    public float getServiceCost() {
         return serviceCost;
     }
 
@@ -18,10 +18,9 @@ public class Service extends basicService {
         this.serviceCost = toClone.serviceCost;
     }
 
-    public Service(String serviceName, int serviceNumber, int serviceCost, Service next) {
+    public Service(String serviceName, int serviceNumber, float serviceCost) {
         super.serviceName = serviceName;
         super.serviceNumber = serviceNumber;
         this.serviceCost = serviceCost;
-
     }
 }
