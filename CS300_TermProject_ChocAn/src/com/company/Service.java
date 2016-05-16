@@ -3,7 +3,7 @@
  */
 package company;
 
-public class Service extends Node {
+public class Service extends basicService {
    protected String serviceName;
    protected int serviceNumber;
    protected int serviceCost;
