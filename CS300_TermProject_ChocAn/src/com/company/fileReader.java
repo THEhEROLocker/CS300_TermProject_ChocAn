@@ -21,11 +21,18 @@ import java.io.*;
  *      }
  */
 public class fileReader {
+
     public fileReader(){
+        this.numberOfLines = 0;
         this.filePath = null;
     }
 
-    private String filePath = null;
+    public int getNumberOfLines() {
+        return numberOfLines;
+    }
+
+    private String filePath;
+    private int numberOfLines;
 
     public fileReader(String inputFilePath){
         filePath = inputFilePath;
@@ -35,7 +42,7 @@ public class fileReader {
 
         FileReader fr = new FileReader(filePath);
         BufferedReader textReader = new BufferedReader(fr);
-        int numberOfLines = countLines();
+        numberOfLines = countLines();
         String [] fileData = new String[numberOfLines];
 
         for(int i = 0; i < numberOfLines; ++i){
