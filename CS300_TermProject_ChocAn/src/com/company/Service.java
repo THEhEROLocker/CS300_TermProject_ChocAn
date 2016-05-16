@@ -4,7 +4,7 @@
 package company;
 
 public class Service extends basicService {
-   protected String serviceName;
+    protected String serviceName;
    protected int serviceNumber;
    protected int serviceCost;
     protected Service next;

@@ -3,7 +3,7 @@
  */
 package company;
 
-public class Provider extends Node {
+public class Provider{
     protected String providerName;
     protected int providerNumber;
     protected String providerAddress;
@@ -12,7 +12,7 @@ public class Provider extends Node {
     protected int zipCode;
     protected int totalConsultation;
     protected int weeklyFees;
-    protected Provider next;
+    protected basicService serviceProvide; //reference to future link list. review method of implementation via LLL library
 
     public Provider() {}
 
@@ -25,7 +25,6 @@ public class Provider extends Node {
         this.zipCode = zipCode;
         this.totalConsultation = totalConsultation;
         this.weeklyFees = weeklyFees;
-        this.next = next;
     }
 }
 
