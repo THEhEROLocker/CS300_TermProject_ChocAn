@@ -21,6 +21,10 @@ import java.io.*;
  *      }
  */
 public class fileReader {
+    public fileReader(){
+        this.filePath = null;
+    }
+
     private String filePath = null;
 
     public fileReader(String inputFilePath){
