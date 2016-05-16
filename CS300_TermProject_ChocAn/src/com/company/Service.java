@@ -4,17 +4,24 @@
 package company;
 
 public class Service extends basicService {
-    protected String serviceName;
-   protected int serviceNumber;
-   protected int serviceCost;
-    protected Service next;
+
+    protected int serviceCost;
 
     public Service(){}
 
+    public int getServiceCost() {
+        return serviceCost;
+    }
+
+    public  Service(Service toClone){
+        super(toClone);
+        this.serviceCost = toClone.serviceCost;
+    }
+
     public Service(String serviceName, int serviceNumber, int serviceCost, Service next) {
-        this.serviceName = serviceName;
-        this.serviceNumber = serviceNumber;
+        super.serviceName = serviceName;
+        super.serviceNumber = serviceNumber;
         this.serviceCost = serviceCost;
-        this.next = next;
+
     }
 }
