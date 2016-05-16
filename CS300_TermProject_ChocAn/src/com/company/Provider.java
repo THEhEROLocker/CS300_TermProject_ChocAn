@@ -3,7 +3,7 @@
  */
 package company;
 
-public class Provider extends Node {
+public class Provider{
     protected String providerName;
     protected int providerNumber;
     protected String providerAddress;
