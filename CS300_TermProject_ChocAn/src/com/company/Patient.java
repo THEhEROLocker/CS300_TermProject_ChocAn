@@ -39,7 +39,7 @@ public class Patient extends basicPatient {
     public int getZip() {
         return zip;
     }
-
+    //reference to future link list. review method of implementation via LLL library
     public void setReceived(basicService received) {
         this.received = received;
     }
