@@ -5,23 +5,23 @@ package company;
  */
 public class Patient extends basicPatient {
 
-    protected basicService received;    //reference to future link list. review method of implementation via LLL library
+    private basicService head = null;    //reference to future link list. review method of implementation via LLL library
     protected String address;
     protected String city;
     protected String state;
     protected int zip;
 
-    public Patient(String name, int patientNumber, basicService received, String address, String city, String state, int zip) {
+    public Patient(String name, int patientNumber, basicService head, String address, String city, String state, int zip) {
         super(name, patientNumber);
-        this.received = received;
+        this.head = head;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
     }
 
-    public basicService getReceived() {
-        return received;
+    public basicService getHead() {
+        return head;
     }
 
     public String getAddress() {
@@ -40,8 +40,8 @@ public class Patient extends basicPatient {
         return zip;
     }
     //reference to future link list. review method of implementation via LLL library
-    public void setReceived(basicService received) {
-        this.received = received;
+    public void setHead(basicService head) {
+        this.head = head;
     }
 
     public void setAddress(String address) {
@@ -59,4 +59,16 @@ public class Patient extends basicPatient {
     public void setZip(int zip) {
         this.zip = zip;
     }
+
+   // public int addService(basicService newService){
+     //   if(head ==null)
+      //      head = newService;
+
+//    }
 }
+
+
+
+
+
+
