@@ -60,11 +60,16 @@ public class Patient extends basicPatient {
         this.zip = zip;
     }
 
-   // public int addService(basicService newService){
-     //   if(head ==null)
-      //      head = newService;
+    public int addService(basicService newService){
+        if(head ==null) {
+            head = newService;
+            head.setNext(null);
+            return 1;
+        }
 
-//    }
+        head.setNext(newService);
+        return 1;
+  }
 }
 
 
