@@ -145,7 +145,7 @@ public class Patient extends basicPatient {
             traverse = null;
             return 1;
         }
-        
+
         return removeService(procedure,traverse.getNext());
     }
 
