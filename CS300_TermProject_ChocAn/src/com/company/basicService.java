@@ -42,4 +42,10 @@ public class basicService {
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
     }
+
+    public void display(){
+        System.out.println("Service name: " + serviceName);
+        System.out.println("Service number: " + serviceNumber);
+    }
+
 }
