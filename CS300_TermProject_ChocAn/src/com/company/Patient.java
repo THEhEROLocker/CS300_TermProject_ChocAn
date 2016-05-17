@@ -175,7 +175,7 @@ public class Patient extends basicPatient {
             return 1;
         }
         return retrieveService(procedure,temp, traverse.getNext());
-        
+
     }
 
     public int clearService(){
