@@ -145,8 +145,8 @@ public class Patient extends basicPatient {
             traverse = null;
             return 1;
         }
-
-        return 0;
+        
+        return removeService(procedure,traverse.getNext());
     }
 
     public basicService retrieveService(){
@@ -158,7 +158,7 @@ public class Patient extends basicPatient {
         basicService searchedService = null;
         basicService traverse = head;
 
-        int result = retrieveService(procedure, searchedService,traverse);
+        int result = retrieveService(procedure, searchedService, traverse);
 
         if(result !=0)
         {
