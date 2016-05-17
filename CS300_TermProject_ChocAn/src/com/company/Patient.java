@@ -68,10 +68,14 @@ public class Patient extends basicPatient {
         if(head ==null) {
             head = newService;
             head.setNext(null);
+            head.setPrevious(null);
             return 1;
         }
 
-        head.setNext(newService);
+        head.setPrevious(newService);
+        newService.setNext(head);
+        newService.setPrevious(null);
+        head = newService;
         return 1;
   }
     public int displayService(){
@@ -79,9 +83,8 @@ public class Patient extends basicPatient {
 
         System.out.println("Would you like to see the list of services received by this member? (Y/N)");
         response=input.nextLine();
-        response = response.toUpperCase();
 
-        if(response.equals("Y"))
+        if(response.equalsIgnoreCase("Y"))
             displayService(head);
         return 1;
 
@@ -89,19 +92,93 @@ public class Patient extends basicPatient {
 
    private void displayService(basicService head){
 
+       if(head==null)
+           return;
+
        head.display();
        displayService(head.getNext());
     }
 
-    public int removeMessage(){
+    public int removeService(){
+        String procedure = null;
+
+        System.out.println("Enter the name of the procedure to remove");
+        procedure=input.nextLine();
+
+        basicService traverse = head;
+        return removeService(procedure,traverse);
 
     }
 
-    private int removeMessage(){
+    private int removeService(String procedure, basicService traverse){
+        if(traverse==null)                                                      //empty DLL
+            return 1;
+        if(procedure.equalsIgnoreCase(traverse.getServiceName())){              //match in DLL
+            if(traverse.getNext() == null){
+                if(traverse.getPrevious() == null) {                            //if only node in DLL
+                    traverse = null;
+                    return 1;
+
+                }
+
+                basicService temp = traverse.getPrevious();                     //match at end of DLL and more than one node
+                traverse.setPrevious(null);
+                traverse = null;
+                temp.setNext(null);
+                return 1;
+            }
+
+            if(traverse.getPrevious() == null){                                 //match at beginning on DLL with more than one node
+                basicService temp = traverse.getNext();
+                temp.setPrevious(null);
+                traverse.setNext(null);
+                traverse = null;
+                return 1;
+            }
+
+            basicService temp = traverse.getPrevious();                        //match in middle of DLL
+            temp.setNext(traverse.getNext());
+            traverse.getNext().setPrevious(temp);
+            traverse.setNext(null);
+            traverse.setPrevious(null);
+            traverse = null;
+            return 1;
+        }
+
 
     }
 
-    public int clearMessages(){
+    public basicService retrieveService(){
+        String procedure = null;
+
+        System.out.println("Enter the name of the procedure to search for");
+        procedure=input.nextLine();
+
+        basicService searchedService;
+        basicService traverse = head;
+
+        int result = removeService(procedure, searchedService,traverse);
+
+        if(result !=0){ return searchedService;}
+
+        System.out.println("That procedure couldn't be found in the patients history");
+        return null;
+
+
+    }
+
+    private int retrieveService(String procedure, basicService temp, basicService traverse){
+        if(traverse == null)
+            return 0;
+        if(procedure.equalsIgnoreCase(traverse.getServiceName())) {
+            temp = new basicService(traverse);
+            return 1;
+        }
+        return retrieveService(procedure,temp, traverse.getNext());
+        
+    }
+
+    public int clearService(){
         head = null;
         return 1;
     }

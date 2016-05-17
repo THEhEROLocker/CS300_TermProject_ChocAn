@@ -6,11 +6,15 @@ package company;
 public class basicService {
 
     private basicService next;
+    private basicService previous;
     protected String serviceName;
     protected int serviceNumber;
 
-    public basicService(){
-
+    public basicService() {
+        this.next = null;
+        this.previous = null;
+        this.serviceName = null;
+        this.serviceNumber = 0;
     }
 
     public basicService(basicService toClone)
@@ -34,6 +38,10 @@ public class basicService {
     public void setNext(basicService next) {
         this.next = next;
     }
+
+    public basicService getPrevious() {return previous;}
+
+    public void setPrevious(basicService previous) {this.previous = previous;}
 
     public void setServiceNumber(int serviceNumber) {
         this.serviceNumber = serviceNumber;
