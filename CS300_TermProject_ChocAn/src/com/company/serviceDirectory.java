@@ -19,13 +19,16 @@ public class serviceDirectory extends fileReader{
             System.out.println(ex.getMessage());
         }
 
+
         Collection<Service> temp = serDir.values();
         Iterator<Service> temp2 = temp.iterator();
 
+        System.out.println(temp.size());
+
         while(temp2.hasNext()){
             temp2.next().display();
+            //temp2.remove();
         }
-
     }
 
     private HashMap<Integer, Service> serDir = new HashMap<Integer, Service>();
