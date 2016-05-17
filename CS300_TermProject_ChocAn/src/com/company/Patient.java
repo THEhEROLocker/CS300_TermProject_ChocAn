@@ -5,6 +5,7 @@ package company;
  */
 import java.io.*;
 import java.util.Scanner;
+
 public class Patient extends basicPatient {
 
     private basicService head = null;    //reference to future link list. review method of implementation via LLL library
@@ -145,7 +146,7 @@ public class Patient extends basicPatient {
             return 1;
         }
 
-
+        return 0;
     }
 
     public basicService retrieveService(){
@@ -154,12 +155,15 @@ public class Patient extends basicPatient {
         System.out.println("Enter the name of the procedure to search for");
         procedure=input.nextLine();
 
-        basicService searchedService;
+        basicService searchedService = null;
         basicService traverse = head;
 
-        int result = removeService(procedure, searchedService,traverse);
+        int result = retrieveService(procedure, searchedService,traverse);
 
-        if(result !=0){ return searchedService;}
+        if(result !=0)
+        {
+            return searchedService;
+        }
 
         System.out.println("That procedure couldn't be found in the patients history");
         return null;
