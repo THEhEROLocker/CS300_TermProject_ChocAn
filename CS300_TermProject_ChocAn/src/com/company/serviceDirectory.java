@@ -27,6 +27,7 @@ public class serviceDirectory extends fileReader{
 
         while(temp2.hasNext()){
             temp2.next().display();
+            System.out.println();
             //temp2.remove();
         }
     }
@@ -48,7 +49,7 @@ public class serviceDirectory extends fileReader{
 
         for(int i =1; i < lineCount; ++i){
             String[] toParse = filedata[i].split(":");
-            toAdd = new Service(toParse[1],Integer.parseInt(toParse[0]),Float.parseFloat(toParse[2]));
+            toAdd = new Service(toParse[1],toParse[3],Integer.parseInt(toParse[0]),Float.parseFloat(toParse[2]));
 
             insertService(toAdd); //calling the insert function
         }

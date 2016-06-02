@@ -7,13 +7,23 @@ public class basicService {
 
     private basicService next;
     private basicService previous;
-    protected String serviceName;
-    protected int serviceNumber;
+    private String serviceName;
+    private int serviceNumber;
+    private String providerName;
+
+    public String getProviderName() {
+        return providerName;
+    }
+
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
 
     public basicService() {
         this.next = null;
         this.previous = null;
         this.serviceName = null;
+
         this.serviceNumber = 0;
     }
 
@@ -21,6 +31,7 @@ public class basicService {
     {
         this.serviceName = toClone.serviceName;
         this.serviceNumber = toClone.serviceNumber;
+        this.providerName = toClone.providerName;
     }
 
     public String getServiceName() {
@@ -52,8 +63,7 @@ public class basicService {
     }
 
     public void display(){
-        System.out.println("Service name: " + serviceName);
-        System.out.println("Service number: " + serviceNumber);
+        System.out.print(serviceName + " " + providerName + " " + serviceNumber + " ");
     }
 
 }
