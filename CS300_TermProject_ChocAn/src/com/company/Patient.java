@@ -14,7 +14,9 @@ public class Patient extends basicPatient {
     protected String address;
     protected String city;
     protected String state;
+    protected float bill;
     protected int zip;
+    protected String lastPaid;
     protected Scanner input=null;
 
     public Patient(){
@@ -29,12 +31,17 @@ public class Patient extends basicPatient {
         this.name = toAdd.name;
         this.address = toAdd.address;
         this.city = toAdd.city;
+        this.bill = toAdd.bill;
+        this.lastPaid = toAdd.lastPaid;
         this.state = toAdd.state;
         this.zip = toAdd.zip;
     }
-    public Patient(String name, int patientNumber, String address, String city, String state, int zip) {
+    public Patient(String name, int patientNumber, String address, String city,
+                   String state, int zip, int bill, String lastPaid) {
         super(name, patientNumber);
         this.address = address;
+        this.bill = bill;
+        this.lastPaid = lastPaid;
         this.city = city;
         this.state = state;
         this.zip = zip;
@@ -60,6 +67,11 @@ public class Patient extends basicPatient {
     public int getZip() {
         return zip;
     }
+
+    public float getBill() {return bill;}
+
+    public String getLastPaid() {return lastPaid;}
+
     //reference to future link list. review method of implementation via LLL library
     public void setHead(basicService head) {
         this.head = head;
@@ -80,6 +92,10 @@ public class Patient extends basicPatient {
     public void setZip(int zip) {
         this.zip = zip;
     }
+
+    public void setBill(float bill){this.bill = bill;}
+
+    public void  setDate(String lastPaid) {this.lastPaid = lastPaid;}
 
     public int addService(basicService newService){
         head = addService(head,newService);
@@ -217,6 +233,14 @@ public class Patient extends basicPatient {
 
     }
 
+    public void validation(Patient checkValidation){
+        validation(checkValidation.getBill(),checkValidation.getLastPaid());
+    }
+
+    private boolean validation(float toPay, String lastPaid){
+
+        return true;
+    }
     public int clearService(){
         head = null;
         return 1;
