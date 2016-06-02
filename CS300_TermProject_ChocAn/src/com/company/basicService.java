@@ -34,6 +34,10 @@ public class basicService {
         this.providerName = toClone.providerName;
     }
 
+    public int compare(basicService toCompare){
+        return serviceName.compareTo(toCompare.getServiceName());
+    }
+
     public String getServiceName() {
         return serviceName;
     }

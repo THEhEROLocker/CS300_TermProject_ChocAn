@@ -4,15 +4,16 @@
 package company;
 
 public class Provider{
-    protected String providerName;
-    protected int providerNumber;
-    protected String providerAddress;
-    protected String city;
-    protected String state;
-    protected int zipCode;
-    protected int totalConsultation;
-    protected int weeklyFees;
-    protected basicService serviceProvide; //reference to future link list. review method of implementation via LLL library
+    private String providerName;
+    private int providerNumber;
+    private String providerAddress;
+    private String city;
+    private String state;
+    private int zipCode;
+    private int totalConsultation;
+    private int weeklyFees;
+    private basicService serviceProvider; //reference to future link list. review method of implementation via LLL library
+    private patientDirectory directory;
 
     public Provider() {}
 
