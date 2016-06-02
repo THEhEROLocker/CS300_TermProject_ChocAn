@@ -1,6 +1,6 @@
-Patient Name:Patient Number:Address:City:State:Zip:
-Sally Mae:90343:123 Fake St:Portland:OR:90234:
-Jimmy Johnson:90532:436 Cool st:Beaverton:OR:90213:
-Karla Fante:90123:983 Hate st:Hillsboro:OR:90321:
-Billy Bob:90654:667 the hole ave:Gresham:OR:90213:
-Rujo:90873:907 love st:Hollywood:OR:90123:
+Patient Name:Patient Number:Address:City:State:Zip:Bill:Last Paid:
+Sally Mae:90343:123 Fake St:Portland:OR:90234:400:5/20/16:
+Jimmy Johnson:90532:436 Cool st:Beaverton:OR:90213:0:/5/30/16:
+Karla Fante:90123:983 Hate st:Hillsboro:OR:90321:20:4/10/16:
+Billy Bob:90654:667 the hole ave:Gresham:OR:90213:55:2/15/16:
+Rujo:90873:907 love st:Hollywood:OR:90123:0:6/1/16:

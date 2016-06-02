@@ -233,10 +233,14 @@ public class Patient extends basicPatient {
 
     }
 
-    public void validation(int toPay,String lastPaid) {
-
+    public void validation(Patient checkValidation){
+        validation(checkValidation.getBill(),checkValidation.getLastPaid());
     }
 
+    private boolean validation(float toPay, String lastPaid){
+
+        return true;
+    }
     public int clearService(){
         head = null;
         return 1;
