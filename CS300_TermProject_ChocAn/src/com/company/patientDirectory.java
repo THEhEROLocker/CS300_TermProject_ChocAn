@@ -48,12 +48,15 @@ public class patientDirectory extends fileReader {
 
         for(int i =1; i < lineCount; ++i){
             String[] toParse = filedata[i].split(":");
-            //toAdd = new Patient(toParse[1],Integer.parseInt(toParse[0]),Float.parseFloat(toParse[2]));
+            toAdd = new Patient(toParse[0],Integer.parseInt(toParse[1]),
+                    toParse[2],toParse[3],toParse[4],Integer.parseInt(toParse[5]));
 
-            //addPatient(toAdd); //calling the insert function
+            insertPatient(toAdd); //calling the insert function
         }
         return 0;
     }
-
+    public void insertPatient(Patient toAdd){
+        patDir.put(toAdd.getPatientNumber(), new Patient(toAdd));
+    }
 
 }

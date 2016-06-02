@@ -24,7 +24,15 @@ public class Patient extends basicPatient {
         input = null;
     }
 
-    public Patient(String name, int patientNumber, basicService head, String address, String city, String state, int zip) {
+    public Patient(Patient toAdd){
+        this.patientNumber = toAdd.patientNumber;
+        this.name = toAdd.name;
+        this.address = toAdd.address;
+        this.city = toAdd.city;
+        this.state = toAdd.state;
+        this.zip = toAdd.zip;
+    }
+    public Patient(String name, int patientNumber, String address, String city, String state, int zip) {
         super(name, patientNumber);
         this.address = address;
         this.city = city;
