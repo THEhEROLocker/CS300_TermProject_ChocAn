@@ -8,6 +8,11 @@ public class basicPatient {
     protected String name;
     protected int patientNumber;
 
+    public basicPatient(){
+        name = null;
+        patientNumber = 0;
+    }
+
     public basicPatient(String name, int patientNumber) {
         this.name = name;
         this.patientNumber = patientNumber;

@@ -18,13 +18,15 @@ public class Service extends basicService {
         this.serviceCost = toClone.serviceCost;
     }
 
-    public Service(String serviceName, int serviceNumber, float serviceCost) {
-        super.serviceName = serviceName;
-        super.serviceNumber = serviceNumber;
+    public Service(String providerName, String serviceName, int serviceNumber, float serviceCost) {
+        super.setServiceName(serviceName);
+        super.setServiceNumber(serviceNumber);
+        super.setProviderName(providerName);
         this.serviceCost = serviceCost;
     }
 
     public void display(){
-        System.out.println(serviceName + " " + serviceNumber + " " + serviceCost);
+        super.display();
+        System.out.print(serviceCost);
     }
 }

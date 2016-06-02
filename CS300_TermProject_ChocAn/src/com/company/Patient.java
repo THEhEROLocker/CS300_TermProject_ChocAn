@@ -9,15 +9,23 @@ import java.util.Scanner;
 public class Patient extends basicPatient {
 
     private basicService head = null;    //reference to future link list. review method of implementation via LLL library
+    private basicService tail = null;
+
     protected String address;
     protected String city;
     protected String state;
     protected int zip;
     protected Scanner input=null;
 
+    public Patient(){
+        tail = head = null;
+        address = city = state = null;
+        zip = 0;
+        input = null;
+    }
+
     public Patient(String name, int patientNumber, basicService head, String address, String city, String state, int zip) {
         super(name, patientNumber);
-        this.head = head;
         this.address = address;
         this.city = city;
         this.state = state;
@@ -66,19 +74,32 @@ public class Patient extends basicPatient {
     }
 
     public int addService(basicService newService){
-        if(head ==null) {
-            head = newService;
+        head = addService(head,newService);
+        return 1;
+    }
+
+    private basicService addService(basicService head,basicService Service){
+        if(head == null){
+            head = new basicService(Service);
             head.setNext(null);
             head.setPrevious(null);
-            return 1;
+            this.tail = head;
+            return head;
+        }
+        else if(head.compare(Service) >= 0){
+            basicService temp = new basicService(Service);
+            temp.setNext(head);
+            temp.setPrevious(head.getPrevious());
+            head.setPrevious(temp);
         }
 
-        head.setPrevious(newService);
-        newService.setNext(head);
-        newService.setPrevious(null);
-        head = newService;
-        return 1;
-  }
+        head = addService(head.getNext(),Service);
+
+        head.getNext().setPrevious(head);
+
+        return head;
+    }
+
     public int displayService(){
         String response = null;
 
