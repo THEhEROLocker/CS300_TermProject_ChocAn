@@ -14,7 +14,9 @@ public class Patient extends basicPatient {
     protected String address;
     protected String city;
     protected String state;
+    protected float bill;
     protected int zip;
+    protected String lastPaid;
     protected Scanner input=null;
 
     public Patient(){
@@ -29,12 +31,17 @@ public class Patient extends basicPatient {
         this.name = toAdd.name;
         this.address = toAdd.address;
         this.city = toAdd.city;
+        this.bill = toAdd.bill;
+        this.lastPaid = toAdd.lastPaid;
         this.state = toAdd.state;
         this.zip = toAdd.zip;
     }
-    public Patient(String name, int patientNumber, String address, String city, String state, int zip) {
+    public Patient(String name, int patientNumber, String address, String city,
+                   String state, int zip, int bill, String lastPaid) {
         super(name, patientNumber);
         this.address = address;
+        this.bill = bill;
+        this.lastPaid = lastPaid;
         this.city = city;
         this.state = state;
         this.zip = zip;
