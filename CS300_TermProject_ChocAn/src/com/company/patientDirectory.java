@@ -9,6 +9,7 @@ import java.util.Iterator;
 /**
  * Created by rujo2 on 5/15/16.
  */
+
 public class patientDirectory extends fileReader {
 
     public patientDirectory() {
@@ -30,6 +31,18 @@ public class patientDirectory extends fileReader {
     }
 
     private HashMap<Integer, Patient> patDir = new HashMap<Integer, Patient>();
+
+    public int insertServices(String []filedata,int id){
+
+        Patient match = retrievePatient(id);
+        int len = filedata.length;
+
+        for(int i = 0; i < len; ++i){
+            basicService temp = new basicService(
+            match.addService();
+        }
+        return 1;
+    }
 
     private int readFromFile() throws IOException {
         String[] filedata = null;

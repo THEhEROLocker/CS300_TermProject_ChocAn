@@ -41,6 +41,10 @@ public class fileReader {
     private String filePath;
     private int numberOfLines;
 
+    public void updateFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
     public fileReader(String inputFilePath){
         filePath = inputFilePath;
     }
