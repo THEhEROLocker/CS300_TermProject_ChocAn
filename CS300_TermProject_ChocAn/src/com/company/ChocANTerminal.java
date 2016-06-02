@@ -47,6 +47,8 @@ public class ChocANTerminal extends fileReader {
 
         }
 
+        p.displayAll();
+
 
     }
 }

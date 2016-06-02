@@ -26,9 +26,13 @@ public class basicService {
 
         this.serviceNumber = 0;
     }
+    public basicService(String serviceName, int serviceNumber, String providerName){
+        this.serviceName = serviceName;
+        this.serviceNumber = serviceNumber;
+        this.providerName = providerName;
+    }
 
-    public basicService(basicService toClone)
-    {
+    public basicService(basicService toClone){
         this.serviceName = toClone.serviceName;
         this.serviceNumber = toClone.serviceNumber;
         this.providerName = toClone.providerName;

@@ -121,6 +121,7 @@ public class Patient extends basicPatient {
             temp.setNext(head);
             temp.setPrevious(head.getPrevious());
             head.setPrevious(temp);
+            return temp;
         }
 
         head = addService(head.getNext(),Service);
@@ -147,8 +148,9 @@ public class Patient extends basicPatient {
        if(head==null)
            return;
 
-       head.display();
        displayService(head.getNext());
+       head.display();
+       System.out.println();
     }
 
     public int removeService(){

@@ -20,13 +20,15 @@ public class patientDirectory extends fileReader {
             System.out.println(ex.getMessage());
         }
 
+    }
 
+    public void displayAll(){
         Collection<Patient> temp = patDir.values();
         Iterator<Patient> temp2 = temp.iterator();
 
         while (temp2.hasNext()) {
             temp2.next().display();
-
+            System.out.println("\n");
         }
     }
 
@@ -38,8 +40,9 @@ public class patientDirectory extends fileReader {
         int len = filedata.length;
 
         for(int i = 0; i < len; ++i){
-            basicService temp = new basicService(
-            match.addService();
+            String[] line = filedata[i].split(":");
+            basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
+            match.addService(temp);
         }
         return 1;
     }
