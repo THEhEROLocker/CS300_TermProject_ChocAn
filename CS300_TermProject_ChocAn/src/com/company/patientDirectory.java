@@ -46,7 +46,8 @@ public class patientDirectory extends fileReader {
         for (int i = 1; i < lineCount; ++i) {
             String[] toParse = filedata[i].split(":");
             toAdd = new Patient(toParse[0], Integer.parseInt(toParse[1]),
-                    toParse[2], toParse[3], toParse[4], Integer.parseInt(toParse[5]));
+                    toParse[2], toParse[3], toParse[4], Integer.parseInt(toParse[5]),Integer.parseInt(toParse[6]),
+                    toParse[7]);
 
             insertPatient(toAdd); //calling the insert function
         }

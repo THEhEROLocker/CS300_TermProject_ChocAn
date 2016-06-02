@@ -67,6 +67,11 @@ public class Patient extends basicPatient {
     public int getZip() {
         return zip;
     }
+
+    public float getBill() {return bill;}
+
+    public String getLastPaid() {return lastPaid;}
+
     //reference to future link list. review method of implementation via LLL library
     public void setHead(basicService head) {
         this.head = head;
@@ -87,6 +92,10 @@ public class Patient extends basicPatient {
     public void setZip(int zip) {
         this.zip = zip;
     }
+
+    public void setBill(float bill){this.bill = bill;}
+
+    public void  setDate(String lastPaid) {this.lastPaid = lastPaid;}
 
     public int addService(basicService newService){
         head = addService(head,newService);
@@ -221,6 +230,10 @@ public class Patient extends basicPatient {
             return 1;
         }
         return retrieveService(procedure,temp, traverse.getNext());
+
+    }
+
+    public void validation(int toPay,String lastPaid) {
 
     }
 
