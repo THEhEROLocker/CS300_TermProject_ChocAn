@@ -18,6 +18,10 @@ public class basicPatient {
         this.patientNumber = patientNumber;
     }
 
+    public void display(){
+        System.out.print(name + " " + patientNumber + " ");
+    }
+
     public String getName() {
         return name;
     }

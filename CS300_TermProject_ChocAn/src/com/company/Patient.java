@@ -86,6 +86,12 @@ public class Patient extends basicPatient {
         return 1;
     }
 
+    public void display(){
+        super.display();
+        System.out.println(address + " " + city + " " + state + " " + zip);
+        displayService(head);
+    }
+
     private basicService addService(basicService head,basicService Service){
         if(head == null){
             head = new basicService(Service);

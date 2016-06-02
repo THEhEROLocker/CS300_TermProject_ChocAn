@@ -23,10 +23,8 @@ public class patientDirectory extends fileReader {
         Collection<Patient> temp = patDir.values();
         Iterator<Patient> temp2 = temp.iterator();
 
-        System.out.println(temp.size());
-
         while (temp2.hasNext()) {
-            temp2.next().displayService();
+            temp2.next().display();
 
         }
     }
