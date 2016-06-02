@@ -27,7 +27,14 @@ public class fileReader {
         this.filePath = null;
     }
 
-    public int getNumberOfLines() {
+    public int getNumberOfLines() throws IOException{
+        try {
+            numberOfLines = countLines();
+        }
+        catch (IOException e){
+            System.out.print(".....");
+        }
+
         return numberOfLines;
     }
 
