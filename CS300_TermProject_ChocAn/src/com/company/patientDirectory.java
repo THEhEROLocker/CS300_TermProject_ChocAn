@@ -15,7 +15,7 @@ public class patientDirectory extends fileReader {
         super("Patient.txt");
         try {
             readFromFile();
-        }catch(IOException ex) {
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
 
@@ -33,30 +33,41 @@ public class patientDirectory extends fileReader {
 
     private HashMap<Integer, Patient> patDir = new HashMap<Integer, Patient>();
 
-    private int readFromFile() throws IOException{
+    private int readFromFile() throws IOException {
         String[] filedata = null;
         Patient toAdd;
         int lineCount = 0;
 
-        try{
+        try {
             filedata = ReadFileData();
             lineCount = getNumberOfLines();
-        }
-        catch (IIOException itFreakedOut){
+        } catch (IIOException itFreakedOut) {
             System.out.println(itFreakedOut.getMessage());
         }
 
-        for(int i =1; i < lineCount; ++i){
+        for (int i = 1; i < lineCount; ++i) {
             String[] toParse = filedata[i].split(":");
-            toAdd = new Patient(toParse[0],Integer.parseInt(toParse[1]),
-                    toParse[2],toParse[3],toParse[4],Integer.parseInt(toParse[5]));
+            toAdd = new Patient(toParse[0], Integer.parseInt(toParse[1]),
+                    toParse[2], toParse[3], toParse[4], Integer.parseInt(toParse[5]));
 
             insertPatient(toAdd); //calling the insert function
         }
         return 0;
     }
-    public void insertPatient(Patient toAdd){
+
+    public void insertPatient(Patient toAdd) {
         patDir.put(toAdd.getPatientNumber(), new Patient(toAdd));
     }
 
+    public int deletePatient(int toDelete) {
+        if (patDir.containsKey(toDelete)) { //Check to see if the service exists based on its key
+            patDir.remove(toDelete); //remove from HashMap
+            return 1; //return success
+        }
+        return 0; //else return failure
+    }
+
+    public Patient retrievePatient(int toRetrieve) {
+        return patDir.get(toRetrieve);
+    }
 }
