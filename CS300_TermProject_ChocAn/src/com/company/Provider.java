@@ -3,6 +3,8 @@
  */
 package company;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Provider{
     private int zip=0;
     private int totalConsultation=0;
     private double weeklyFees=0;
-    private List<basicService> content; //reference to future link list. review method of implementation via LLL library
+    private ArrayList<basicService> content = null; //reference to future link list. review method of implementation via LLL library
     private patientDirectory directory;
 
     public Provider() {}
@@ -36,12 +38,12 @@ public class Provider{
         this.zip = zip;
         this.totalConsultation = totalConsultation;
         this.weeklyFees = weeklyFees;
+        this.content = new ArrayList<basicService>();
     }
 
     public void addService (basicService toAdd) {
-        content.add(toAdd);
-        //Comparator<int> C=new Comparator<int>();
-        //content.sort(C.compare(content.get(0).getServiceNumber(), toAdd.getServiceNumber()));
+        content.add(new basicService(toAdd));
+        Collections.sort(content,new myCompService());
     }
     public boolean delService (int index) {
         basicService found = content.remove(index);
