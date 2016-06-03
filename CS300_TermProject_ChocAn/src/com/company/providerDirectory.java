@@ -1,8 +1,23 @@
 package company;
 
-/**
- * Created by hERO on 6/2/16.
- */
-public class providerDirectory {
+import java.io.IOException;
+import java.util.HashMap;
 
+
+public class providerDirectory extends fileReader{
+
+    private HashMap<Integer, Provider> provDir = new HashMap<Integer, Provider>();
+
+    public providerDirectory(){
+        super("Provider.txt");
+        try{
+            readFromFile();
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private int readFromFile() throws IOException{
+        return 0;
+    }
 }
