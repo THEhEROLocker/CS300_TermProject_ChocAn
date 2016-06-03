@@ -3,28 +3,22 @@
  */
 package company;
 
+import java.util.Comparator;
+import java.util.List;
+
 public class Provider{
-    private String name;
-    private int providerNumber;
-    private String address;
-    private String city;
-    private String state;
-    private int zip;
-    private int totalConsultation;
-    private double weeklyFees;
-    private basicService serviceProvider; //reference to future link list. review method of implementation via LLL library
+    private String name="";
+    private int providerNumber=0;
+    private String address="";
+    private String city="";
+    private String state="";
+    private int zip=0;
+    private int totalConsultation=0;
+    private double weeklyFees=0;
+    private List<basicService> content; //reference to future link list. review method of implementation via LLL library
     private patientDirectory directory;
 
-    public Provider() {
-        this.name = "";
-        this.providerNumber = 0;
-        this.address = "";
-        this.city = "";
-        this.state = "";
-        this.zip = 0;
-        this.totalConsultation = 0;
-        this.weeklyFees = 0;
-    }
+    public Provider() {}
 
     public Provider(String name,
                     int providerNumber,
@@ -44,14 +38,25 @@ public class Provider{
         this.weeklyFees = weeklyFees;
     }
 
+    public void addService (basicService toAdd) {
+        content.add(toAdd);
+        //Comparator<int> C=new Comparator<int>();
+        //content.sort(C.compare(content.get(0).getServiceNumber(), toAdd.getServiceNumber()));
+    }
+    public boolean delService (int index) {
+        basicService found = content.remove(index);
+        return found != null;
+    }
+
     public void display () {
         System.out.print(name + " " + providerNumber + " ");
         System.out.println(address + " " + city + " " + state + " " + zip);
     }
 
     public static void main(String[] args) {
-        Provider prov = new Provider("Local Herb Collective", 6978648, "1234 Some St", "Somecity", "ST", 21668, 0, 34.4);
-        prov.display();
+        Provider prov1 = new Provider();
+        Provider prov2 = new Provider("Local Herb Collective", 6978648, "1234 Some St", "Somecity", "ST", 21668, 0, 34.4);
+        prov1.display(); prov2.display();
     }
 }
 
