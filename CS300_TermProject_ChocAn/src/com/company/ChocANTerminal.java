@@ -1,5 +1,6 @@
 package company;
 
+import javax.imageio.IIOException;
 import java.io.File;
 import java.io.IOException;
 

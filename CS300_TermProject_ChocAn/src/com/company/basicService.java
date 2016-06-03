@@ -1,5 +1,8 @@
 package company;
 
+import java.util.Iterator;
+import java.util.TreeSet;
+
 /**
  * Created by eynis on 5/15/16.
  */
@@ -10,6 +13,8 @@ public class basicService {
     private String serviceName;
     private int serviceNumber;
     private String providerName;
+
+    private TreeSet<basicPatient> patientListTree = null;
 
     public String getProviderName() {
         return providerName;
@@ -26,6 +31,7 @@ public class basicService {
 
         this.serviceNumber = 0;
     }
+
     public basicService(String serviceName, int serviceNumber, String providerName){
         this.serviceName = serviceName;
         this.serviceNumber = serviceNumber;
@@ -36,6 +42,24 @@ public class basicService {
         this.serviceName = toClone.serviceName;
         this.serviceNumber = toClone.serviceNumber;
         this.providerName = toClone.providerName;
+    }
+
+    public int insertPatient(basicPatient toAdd){
+        if(patientListTree == null){
+            patientListTree = new TreeSet<basicPatient>();
+        }
+
+        patientListTree.add(toAdd);
+        return 1;
+    }
+
+    public void displayAllPatients(){
+        Iterator<basicPatient> it = patientListTree.iterator();
+
+        while (it.hasNext()) {
+            it.next().display();
+            System.out.println("\n");
+        }
     }
 
     public int compare(basicService toCompare){
