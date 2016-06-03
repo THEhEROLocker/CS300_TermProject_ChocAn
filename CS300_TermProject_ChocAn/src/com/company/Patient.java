@@ -14,10 +14,9 @@ public class Patient extends basicPatient {
     protected String address;
     protected String city;
     protected String state;
-    protected float bill;
     protected int zip;
-    protected String lastPaid;
     protected Scanner input=null;
+    protected String lastPaid;
 
     public Patient(){
         tail = head = null;

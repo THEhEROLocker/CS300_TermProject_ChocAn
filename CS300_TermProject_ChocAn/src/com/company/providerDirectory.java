@@ -1,17 +1,14 @@
 package company;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Collection;
 import javax.imageio.IIOException;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.util.*;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by hERO on 6/2/16.
  */
-import java.util.HashMap;
-
 
 public class providerDirectory extends fileReader{
 
@@ -24,6 +21,35 @@ public class providerDirectory extends fileReader{
         }catch(IOException ex){
             System.out.println(ex.getMessage());
         }
+    }
+
+    public void displayAll(){
+        Collection<Provider> temp = provDir.values();
+        Iterator<Provider> temp2 = temp.iterator();
+
+        while(temp2.hasNext()){
+            temp2.next().display();
+            System.out.println();
+        }
+    }
+
+    private void insertProvider(Provider toAdd){
+        provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
+    }
+
+    private int insertService(int providerNumber, basicService toAdd){
+        if (provDir.containsKey(providerNumber)) { //Check to see if the service exists based on its key
+            provDir.get(providerNumber).addService(toAdd);
+            return 1; //return success
+        }
+        return 0; //else return failure
+    }
+
+    private int insertPatient(int providerNumber, int serviceNumber, basicPatient toAdd){
+        if(provDir.containsKey(providerNumber)){
+            return provDir.get(providerNumber).addPatient(serviceNumber, toAdd);
+        }
+        return 0;
     }
 
     private int readFromFile() throws IOException {
@@ -46,9 +72,8 @@ public class providerDirectory extends fileReader{
 
             insertProvider(toAdd); //calling the insert function
         }
+
         return 0;
     }
-    private int insertProvider(Provider toAdd){
-        return 1;
-    }
+
 }

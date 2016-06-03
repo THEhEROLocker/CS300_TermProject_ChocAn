@@ -3,10 +3,7 @@
  */
 package company;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Provider{
     private String name="";
@@ -21,6 +18,18 @@ public class Provider{
     private patientDirectory directory;
 
     public Provider() {}
+
+    public Provider(Provider toClone){
+        this.name = toClone.name;
+        this.providerNumber = toClone.providerNumber;
+        this.address = toClone.address;
+        this.city = toClone.city;
+        this.state = toClone.state;
+        this.zip = toClone.zip;
+        this.totalConsultation = toClone.totalConsultation;
+        this.weeklyFees = toClone.weeklyFees;
+        this.content = toClone.content;
+    }
 
     public Provider(String name,
                     int providerNumber,
@@ -41,6 +50,10 @@ public class Provider{
         this.content = new ArrayList<basicService>();
     }
 
+    public int getProviderNumber() {
+        return providerNumber;
+    }
+
     public void addService (basicService toAdd) {
         content.add(new basicService(toAdd));
         Collections.sort(content,new myCompService());
@@ -48,6 +61,18 @@ public class Provider{
     public boolean delService (int index) {
         basicService found = content.remove(index);
         return found != null;
+    }
+
+    public int addPatient(int serviceNumber, basicPatient toAdd){
+        ListIterator<basicService> Itr = content.listIterator();
+        while(Itr.hasNext()){
+            basicService temp = Itr.next();
+            if(temp.getServiceNumber() == serviceNumber){
+                temp.insertPatient(toAdd);
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public void display () {
