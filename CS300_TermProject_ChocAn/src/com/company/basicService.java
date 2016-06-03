@@ -1,11 +1,13 @@
 package company;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
  * Created by eynis on 5/15/16.
  */
+
 public class basicService {
 
     private basicService next;
@@ -46,7 +48,7 @@ public class basicService {
 
     public int insertPatient(basicPatient toAdd){
         if(patientListTree == null){
-            patientListTree = new TreeSet<basicPatient>();
+            patientListTree = new TreeSet<basicPatient>(new myCompPatient());
         }
 
         patientListTree.add(toAdd);
