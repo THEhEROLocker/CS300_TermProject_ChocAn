@@ -3,12 +3,8 @@ package company;
 import javax.imageio.IIOException;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by rujo2 on 5/15/16.
@@ -28,10 +24,12 @@ public class patientDirectory extends fileReader {
 
     public void displayAll() {
         Collection<Patient> temp = patDir.values();
-        Iterator<Patient> temp2 = temp.iterator();
+        List<Patient> list = new ArrayList<Patient>(temp);
+        Collections.sort(list,new myCompPatient());
 
-        while (temp2.hasNext()) {
-            temp2.next().display();
+        while (!list.isEmpty()) {
+            list.get(0).display();
+            list.remove(0);
             System.out.println("\n");
         }
     }
