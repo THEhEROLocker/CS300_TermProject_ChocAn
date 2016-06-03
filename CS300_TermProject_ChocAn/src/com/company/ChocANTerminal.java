@@ -11,7 +11,7 @@ public class ChocANTerminal extends fileReader {
 
     private patientDirectory patientDirectoryObj = null;
     private serviceDirectory serviceDirectoryObj = null;
-    private providerDirectory providerDirectoryObj = null;
+   // private providerDirectory providerDirectoryObj = null;
 
     public String[] listFiles(final File folder) {
         String [] array = new String[folder.listFiles().length];
