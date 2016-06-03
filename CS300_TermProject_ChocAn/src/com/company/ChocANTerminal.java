@@ -19,11 +19,11 @@ public class ChocANTerminal extends fileReader {
         serviceDirectoryObj = new serviceDirectory();
         providerDirectoryObj = new providerDirectory();
 
-        populateServiceDirectory();
-        //populateProviderDirectory(); //should work when retrieve is done for pDir
+        //populateServiceDirectory();
+        populateProviderDirectory(); //should work when retrieve is done for pDir
 
-       // patientDirectoryObj.displayAll();
-
+        //patientDirectoryObj.displayAll();
+        providerDirectoryObj.displayAll();
 
     }
 
@@ -62,7 +62,7 @@ public class ChocANTerminal extends fileReader {
         int len = Integer.parseInt(filedata[0]);
         int fileLength = filedata.length;
 
-        for(int i = 0; i < len; ++i){
+        for(int i = 1; i < len; ++i){
             String[] line = filedata[i].split(":");
             basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
 
@@ -112,7 +112,7 @@ public class ChocANTerminal extends fileReader {
         Patient match = patientDirectoryObj.retrievePatient(id);
         int len = filedata.length;
 
-        for(int i = 1; i < len; ++i){
+        for(int i = 0; i < len; ++i){
             String[] line = filedata[i].split(":");
             basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
 
