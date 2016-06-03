@@ -19,16 +19,15 @@ public class serviceDirectory extends fileReader{
             System.out.println(ex.getMessage());
         }
 
+    }
 
+    public void displayAll(){
         Collection<Service> temp = serDir.values();
         Iterator<Service> temp2 = temp.iterator();
-
-        System.out.println(temp.size());
 
         while(temp2.hasNext()){
             temp2.next().display();
             System.out.println();
-            //temp2.remove();
         }
     }
 
