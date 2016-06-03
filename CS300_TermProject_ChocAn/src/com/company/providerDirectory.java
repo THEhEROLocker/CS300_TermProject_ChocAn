@@ -1,9 +1,7 @@
 package company;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Collection;
+import java.util.*;
 import javax.imageio.IIOException;
 
 /**
@@ -25,11 +23,13 @@ public class providerDirectory extends fileReader{
 
     public void displayAll(){
         Collection<Provider> temp = provDir.values();
-        Iterator<Provider> temp2 = temp.iterator();
+        List<Provider> list = new ArrayList<Provider>(temp);
+        Collections.sort(list,new myCompProvider());
 
-        while(temp2.hasNext()){
-            temp2.next().display();
-            System.out.println();
+        while (!list.isEmpty()) {
+            list.get(0).display();
+            list.remove(0);
+            System.out.println("\n");
         }
     }
 

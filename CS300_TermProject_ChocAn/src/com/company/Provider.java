@@ -50,6 +50,10 @@ public class Provider{
         this.content = new ArrayList<basicService>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void displayServices(){
         Iterator<basicService> temp = content.iterator();
         while(temp.hasNext()){
