@@ -37,9 +37,8 @@ public class Patient extends basicPatient {
     }
     public Patient(String name, int patientNumber, String address, String city,
                    String state, int zip, int bill, String lastPaid) {
-        super(name, patientNumber);
+        super(name, patientNumber,bill,"");
         this.address = address;
-        this.bill = bill;
         this.lastPaid = lastPaid;
         this.city = city;
         this.state = state;

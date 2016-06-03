@@ -33,11 +33,14 @@ public class providerDirectory extends fileReader{
         }
     }
 
+    public Provider retrieve(int providerNumber){
+        return null;
+    }
     private void insertProvider(Provider toAdd){
         provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }
 
-    private int insertService(int providerNumber, basicService toAdd){
+    public int insertService(int providerNumber, basicService toAdd){
         if (provDir.containsKey(providerNumber)) { //Check to see if the service exists based on its key
             provDir.get(providerNumber).addService(toAdd);
             return 1; //return success
@@ -45,7 +48,7 @@ public class providerDirectory extends fileReader{
         return 0; //else return failure
     }
 
-    private int insertPatient(int providerNumber, int serviceNumber, basicPatient toAdd){
+    public int insertPatient(int providerNumber, int serviceNumber, basicPatient toAdd){
         if(provDir.containsKey(providerNumber)){
             return provDir.get(providerNumber).addPatient(serviceNumber, toAdd);
         }

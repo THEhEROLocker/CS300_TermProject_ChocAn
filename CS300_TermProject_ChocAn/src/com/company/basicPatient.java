@@ -16,9 +16,11 @@ public class basicPatient {
         patientNumber = 0;
     }
 
-    public basicPatient(String name, int patientNumber) {
+    public basicPatient(String name, int patientNumber, float bill, String dateOfService) {
         this.name = name;
         this.patientNumber = patientNumber;
+        this.bill = bill;
+        this.dateOfService = dateOfService;
     }
 
     public void display(){
