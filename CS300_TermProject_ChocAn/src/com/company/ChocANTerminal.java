@@ -41,7 +41,7 @@ public class ChocANTerminal extends fileReader {
             Provider temp = providerDirectoryObj.retrieve(Integer.parseInt(files[i]));
             String[] filedata = null;
 
-            if (temp == null){ //flip logic later
+            if (temp != null){ //flip logic later
                 try{
                     String path = "../../Providers/";
                     updateFilePath(path + files[i]);
@@ -59,20 +59,28 @@ public class ChocANTerminal extends fileReader {
     private int insertProviders(String []filedata,int id){
 
         Provider match = providerDirectoryObj.retrieve(id);
+
         int len = Integer.parseInt(filedata[0]);
         int fileLength = filedata.length;
 
-        for(int i = 1; i < len; ++i){
+        for(int i = 1; i <= len; ++i){
             String[] line = filedata[i].split(":");
             basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
-
+            providerDirectoryObj.insertService(id,temp);
             ++i;//parse the next line
-            while(i < fileLength && filedata[i].length() > 3){
-                line = filedata[i].split(":");
-                basicPatient temp2 = new basicPatient(filedata[1],Integer.parseInt(filedata[1])
-                                         ,Float.parseFloat(filedata[2]),filedata[3]);
+            line = filedata[i].split(":");
+            int  j = line.length;
+            while(i < fileLength && j == 4){
+                basicPatient temp2 = new basicPatient(line[1],Integer.parseInt(line[0])
+                                         ,Float.parseFloat(line[2]),line[3]);
                 providerDirectoryObj.insertPatient(id,temp.getServiceNumber(),temp2);
                 ++i;
+                if(i < fileLength){
+                    line = filedata[i].split(":");
+                    j = line.length;
+                }
+
+
             }
         }
         return 1;
