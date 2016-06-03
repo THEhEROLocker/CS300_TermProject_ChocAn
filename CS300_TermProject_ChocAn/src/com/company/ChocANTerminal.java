@@ -68,18 +68,21 @@ public class ChocANTerminal extends fileReader {
             basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
             providerDirectoryObj.insertService(id,temp);
             ++i;//parse the next line
+
             line = filedata[i].split(":");
             int  j = line.length;
             while(i < fileLength && j == 4){
                 basicPatient temp2 = new basicPatient(line[1],Integer.parseInt(line[0])
                                          ,Float.parseFloat(line[2]),line[3]);
                 providerDirectoryObj.insertPatient(id,temp.getServiceNumber(),temp2);
-                ++i;
-                if(i < fileLength){
+                if(i+1 < fileLength && filedata[i+1].split(":").length == 4){
+                    ++i;
                     line = filedata[i].split(":");
                     j = line.length;
                 }
-
+                else{
+                    j = 0;
+                }
 
             }
         }

@@ -53,7 +53,10 @@ public class Provider{
     private void displayServices(){
         Iterator<basicService> temp = content.iterator();
         while(temp.hasNext()){
-            temp.next().displayAllPatients();
+            basicService a = temp.next();
+            a.display();
+            System.out.println();
+            a.displayAllPatients();
         }
     }
 
