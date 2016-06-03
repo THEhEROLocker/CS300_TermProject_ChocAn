@@ -3,10 +3,7 @@
  */
 package company;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Provider{
     private String name="";
@@ -64,6 +61,18 @@ public class Provider{
     public boolean delService (int index) {
         basicService found = content.remove(index);
         return found != null;
+    }
+
+    public int addPatient(int serviceNumber, basicPatient toAdd){
+        ListIterator<basicService> Itr = content.listIterator();
+        while(Itr.hasNext()){
+            basicService temp = Itr.next();
+            if(temp.getServiceNumber() == serviceNumber){
+                temp.insertPatient(toAdd);
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public void display () {

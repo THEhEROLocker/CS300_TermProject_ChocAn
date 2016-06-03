@@ -37,6 +37,21 @@ public class providerDirectory extends fileReader{
         provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }
 
+    private int insertService(int providerNumber, basicService toAdd){
+        if (provDir.containsKey(providerNumber)) { //Check to see if the service exists based on its key
+            provDir.get(providerNumber).addService(toAdd);
+            return 1; //return success
+        }
+        return 0; //else return failure
+    }
+
+    private int insertPatient(int providerNumber, int serviceNumber, basicPatient toAdd){
+        if(provDir.containsKey(providerNumber)){
+            return provDir.get(providerNumber).addPatient(serviceNumber, toAdd);
+        }
+        return 0;
+    }
+
     private int readFromFile() throws IOException {
 
         String[] filedata = null;

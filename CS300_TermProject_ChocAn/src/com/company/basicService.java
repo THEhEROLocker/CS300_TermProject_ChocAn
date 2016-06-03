@@ -50,7 +50,6 @@ public class basicService {
         if(patientListTree == null){
             patientListTree = new TreeSet<basicPatient>(new myCompPatient());
         }
-
         patientListTree.add(toAdd);
         return 1;
     }
