@@ -4,28 +4,54 @@
 package company;
 
 public class Provider{
-    private String providerName;
+    private String name;
     private int providerNumber;
-    private String providerAddress;
+    private String address;
     private String city;
     private String state;
-    private int zipCode;
+    private int zip;
     private int totalConsultation;
-    private int weeklyFees;
+    private double weeklyFees;
     private basicService serviceProvider; //reference to future link list. review method of implementation via LLL library
     private patientDirectory directory;
 
-    public Provider() {}
+    public Provider() {
+        this.name = "";
+        this.providerNumber = 0;
+        this.address = "";
+        this.city = "";
+        this.state = "";
+        this.zip = 0;
+        this.totalConsultation = 0;
+        this.weeklyFees = 0;
+    }
 
-    public Provider(String providerName, int providerNumber, String providerAddress, String city, String state, int zipCode, int totalConsultation, int weeklyFees, Provider next) {
-        this.providerName = providerName;
+    public Provider(String name,
+                    int providerNumber,
+                    String address,
+                    String city,
+                    String state,
+                    int zip,
+                    int totalConsultation,
+                    double weeklyFees) {
+        this.name = name;
         this.providerNumber = providerNumber;
-        this.providerAddress = providerAddress;
+        this.address = address;
         this.city = city;
         this.state = state;
-        this.zipCode = zipCode;
+        this.zip = zip;
         this.totalConsultation = totalConsultation;
         this.weeklyFees = weeklyFees;
+    }
+
+    public void display () {
+        System.out.print(name + " " + providerNumber + " ");
+        System.out.println(address + " " + city + " " + state + " " + zip);
+    }
+
+    public static void main(String[] args) {
+        Provider prov = new Provider("Local Herb Collective", 6978648, "1234 Some St", "Somecity", "ST", 21668, 0, 34.4);
+        prov.display();
     }
 }
 
