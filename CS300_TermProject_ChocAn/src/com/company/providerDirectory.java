@@ -34,8 +34,12 @@ public class providerDirectory extends fileReader{
     }
 
     public Provider retrieve(int providerNumber){
+        if (provDir.containsKey(providerNumber))
+                return provDir.get(providerNumber);
         return null;
     }
+
+
     private void insertProvider(Provider toAdd){
         provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }

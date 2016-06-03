@@ -1,0 +1,7 @@
+Service code:Provider Name:Fee of Service:
+768760:Juan Douglas:45.50:Dentist:
+798970:Billy Bob:50.00:Stripper:
+765670:Sarah Ruffhousin:20.00:Pediatrician:
+798430:Jane Workhorse:25.00:Masseuse:
+721250:Dirk Diggler:89.00:Masseuse:
+768761:Juan Douglas:25.00:Physical Therapy:

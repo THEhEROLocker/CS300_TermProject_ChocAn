@@ -15,7 +15,6 @@ public class basicService {
     private String serviceName;
     private int serviceNumber;
     private String providerName;
-
     private TreeSet<basicPatient> patientListTree = null;
 
     public String getProviderName() {
