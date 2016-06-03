@@ -50,6 +50,13 @@ public class Provider{
         this.content = new ArrayList<basicService>();
     }
 
+    private void displayServices(){
+        Iterator<basicService> temp = content.iterator();
+        while(temp.hasNext()){
+            temp.next().displayAllPatients();
+        }
+    }
+
     public int getProviderNumber() {
         return providerNumber;
     }
@@ -78,6 +85,7 @@ public class Provider{
     public void display () {
         System.out.print(name + " " + providerNumber + " ");
         System.out.println(address + " " + city + " " + state + " " + zip);
+        displayServices();
     }
 
     public static void main(String[] args) {
