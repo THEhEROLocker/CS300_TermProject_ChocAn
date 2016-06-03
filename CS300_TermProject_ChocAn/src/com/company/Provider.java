@@ -22,6 +22,18 @@ public class Provider{
 
     public Provider() {}
 
+    public Provider(Provider toClone){
+        this.name = toClone.name;
+        this.providerNumber = toClone.providerNumber;
+        this.address = toClone.address;
+        this.city = toClone.city;
+        this.state = toClone.state;
+        this.zip = toClone.zip;
+        this.totalConsultation = toClone.totalConsultation;
+        this.weeklyFees = toClone.weeklyFees;
+        this.content = toClone.content;
+    }
+
     public Provider(String name,
                     int providerNumber,
                     String address,
@@ -39,6 +51,10 @@ public class Provider{
         this.totalConsultation = totalConsultation;
         this.weeklyFees = weeklyFees;
         this.content = new ArrayList<basicService>();
+    }
+
+    public int getProviderNumber() {
+        return providerNumber;
     }
 
     public void addService (basicService toAdd) {

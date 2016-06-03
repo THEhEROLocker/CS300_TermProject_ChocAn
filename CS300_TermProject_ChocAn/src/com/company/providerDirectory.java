@@ -34,7 +34,7 @@ public class providerDirectory extends fileReader{
     }
 
     private void insertProvider(Provider toAdd){
-
+        provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }
 
     private int readFromFile() throws IOException {
