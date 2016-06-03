@@ -78,6 +78,7 @@ public class Provider{
     public void display () {
         System.out.print(name + " " + providerNumber + " ");
         System.out.println(address + " " + city + " " + state + " " + zip);
+
     }
 
     public static void main(String[] args) {
