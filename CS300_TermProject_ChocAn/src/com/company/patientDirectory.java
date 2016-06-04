@@ -34,6 +34,12 @@ public class patientDirectory extends fileReader {
         }
     }
 
+    public int validatePatient(int toValidate){
+        if(patDir.containsKey(toValidate))
+            return 1;
+        return 0;
+    }
+
     private HashMap<Integer, Patient> patDir = new HashMap<Integer, Patient>();
 
     public int insertServices(String[] filedata, int id) {
