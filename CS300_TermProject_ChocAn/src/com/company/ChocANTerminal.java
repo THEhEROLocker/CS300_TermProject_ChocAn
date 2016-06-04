@@ -40,10 +40,9 @@ public class ChocANTerminal extends fileReader {
             System.out.println("9.  Add a provider");
             System.out.println("10. Remove a provider");
             System.out.println("11. Update a provider");
-            System.out.println("12. Show provider list");
-            System.out.println("13. Show member list");
-            System.out.println("14. Generate report for provider");
-            System.out.println("15. Generate report for member");
+            System.out.println("12. Show member list");
+            System.out.println("13. Generate report for provider");
+            System.out.println("14. Generate report for member");
 
             do {
                 System.out.print("Please enter a command: ");
@@ -90,10 +89,7 @@ public class ChocANTerminal extends fileReader {
                     break;
                 case 13:
                     patientDirectoryObj.displayAll();
-                    break;
                 case 14:
-                    break;
-                case 15:
                     break;
                 default:
                     break;
