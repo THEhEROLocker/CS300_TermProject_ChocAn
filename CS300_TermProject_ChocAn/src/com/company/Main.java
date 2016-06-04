@@ -32,5 +32,13 @@ public class Main {
         serviceDirectory dir = new serviceDirectory();
         top_menu();
     */
+
+
+        //run test class which tests member, provider,and service directory functions
+        test testChoc = new test();
+        testChoc.testDisplayAll();
+        testChoc.testInsert();
+        testChoc.testRemove();
+        testChoc.testUpdate();
     }
 }

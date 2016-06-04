@@ -22,44 +22,45 @@ public class test {
     }
 
     public void testDisplayAll(){
-        System.out.print("Member directory display: ");         //Test class tests displayAll functions for member, provider, and service directory
+        System.out.print("Test Member directory display: \n");         //Test class tests displayAll functions for member, provider, and service directory
         testMem.displayAll();
 
-        System.out.print("Provider directory display: ");
+        System.out.print("Test Provider directory display: \n");
         testProv.displayAll();
 
-        System.out.print("Service directory display: ");
+        System.out.print("Test Service directory display: \n");
         testServ.displayAll();
     }
 
     public void testInsert(){
-        System.out.print("Member directory insert ");         //Test class tests insert functions for member, provider, and service directory
+        System.out.print("Test Member directory insert\n");         //Test class tests insert functions for member, provider, and service directory
         testMem.insertPatient();
 
-        System.out.print("Provider directory insert ");
+        System.out.print("Test Provider directory insert\n");
         testProv.insertProvider();
 
-        System.out.print("Service directory insert ");
+        System.out.print("Test Service directory insert\n");
         testServ.insertService();
 
     }
 
     public void testRemove() {
-        System.out.print("Member directory remove");         //Test class tests remove functions for member, provider, and service directory
+        System.out.print("Test Member directory remove\n");         //Test class tests remove functions for member, provider, and service directory
         testMem.deletePatient();
 
-        System.out.print("Provider directory remove ");
+        System.out.print("Test Provider directory remove\n");
         testProv.removeProvider();
 
-        System.out.print("Service directory remove");
+        System.out.print("Test Service directory remove\n");
         testServ.deleteService();
     }
 
     public void testUpdate() {
-        System.out.print("Member directory update");         //Test class tests update functions for member, provider directory
+        System.out.print("Test Member directory update\n");         //Test class tests update functions for member, provider directory
         testMem.updatePatient();
 
-        System.out.print("Provider directory update ");
+        System.out.print("Test Provider directory update\n");
         testProv.updateProvider();
     }
+
 }
