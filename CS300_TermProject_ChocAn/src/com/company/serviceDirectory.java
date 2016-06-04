@@ -65,7 +65,7 @@ public class serviceDirectory extends fileReader{
         do {
             System.out.print("Enter new service number: ");
              serNum = input.nextInt();
-        }while(!serDir.containsKey(serNum));
+        }while(serDir.containsKey(serNum));
         System.out.print("Enter new service name: ");
         String serName = input.next();
         System.out.print("Enter new service cost: ");

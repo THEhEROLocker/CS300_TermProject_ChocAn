@@ -33,6 +33,54 @@ public class providerDirectory extends fileReader{
         }
     }
 
+    public void updateProvider(){
+        int ID = 0;
+        Provider temp = null;
+        Scanner input = new Scanner(System.in);
+
+        do {
+            displayAll();
+            System.out.println();
+            System.out.println("Enter the ID of the provider that you wish to update: ");
+            ID = input.nextInt();
+            input.nextLine();
+            temp = retrieve(ID);
+        }while (temp == null);
+
+        System.out.print("Enter the name of the provider: ");
+        String a = input.nextLine();
+        temp.setName(a);
+
+        System.out.println();
+
+        String memID;
+        int len = 0;
+
+        do{
+            System.out.print("Enter member ID number: ");
+            memID = input.nextLine();
+            len = memID.length();
+        }while(provDir.containsKey(memID) && len == 6 );
+
+        temp.setProviderNumber(Integer.parseInt(memID));
+
+        System.out.print("Enter the address: ");
+        temp.setAddress(input.nextLine());
+
+        System.out.print("What city you from: ");
+        temp.setCity(input.nextLine());
+
+        System.out.print("What state you from: ");
+        temp.setState(input.nextLine());
+
+        System.out.print("Enter the zip code: ");
+        temp.setZip(input.nextInt());
+        input.nextLine();
+
+        System.out.print("Enter the weekly prices: ");
+        temp.setWeeklyFees(input.nextDouble());
+    }
+
     public void removeProvider(){
         int ID = 0;
         Provider temp = null;
@@ -60,11 +108,16 @@ public class providerDirectory extends fileReader{
         provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }
 
+    public int validateProvider(int provNum){
+        if(provDir.containsKey(provNum))
+            return 1;
+        return 0;
+    }
+
     public void insertProvider(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the name of the provider: ");
         String name  = input.nextLine();
-        System.out.print("Enter the user ID: ");
         String memID;
         int len = 0;
 
