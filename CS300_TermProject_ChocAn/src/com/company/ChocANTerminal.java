@@ -176,7 +176,7 @@ public class ChocANTerminal extends fileReader {
     private void write_all_data(){
 
         //write out all the Service data
-            writeOutServiceTXT();
+            String [] data = serviceDirectoryObj.
         //write out all the Patient Data
 
             //write out all the "People"
@@ -187,9 +187,6 @@ public class ChocANTerminal extends fileReader {
 
     }
 
-    private void writeOutServiceTXT(){
-
-    }
 
 
 /*
