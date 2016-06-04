@@ -101,7 +101,9 @@ public class serviceDirectory extends fileReader{
 
     //This function retrieves a service given the service number as a key number to HashMap
     public Service retrieveService(int toRetrieve){
-        return serDir.get(toRetrieve);
+        if(serDir.containsKey(toRetrieve))
+            return serDir.get(toRetrieve);
+        return null;
     }
 
 

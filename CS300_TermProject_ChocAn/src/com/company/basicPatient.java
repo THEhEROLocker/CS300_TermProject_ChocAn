@@ -23,6 +23,10 @@ public class basicPatient {
         this.dateOfService = dateOfService;
     }
 
+    public void addBill(float bill) {
+        this.bill += bill;
+    }
+
     public void display(){
         System.out.print(name + " " + patientNumber + " ");
     }
