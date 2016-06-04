@@ -104,7 +104,6 @@ public class ChocANTerminal extends fileReader {
                     System.out.println("9.  Show member list");
                     System.out.println("10. Generate report for provider");
                     System.out.println("11. Generate report for member");
-                    System.out.println("12. Validate a member");
 
                     do {
                         System.out.print("Please enter a command: ");
@@ -145,9 +144,6 @@ public class ChocANTerminal extends fileReader {
                         case 11:
                             retrieveMemberInfo();
                             break;
-                        case 12:
-                            memberValidate();
-                            break;
                         default:
                             break;
 
@@ -175,7 +171,7 @@ public class ChocANTerminal extends fileReader {
         providerDirectoryObj.displayAll();
 
     }
-
+/*
     private void memberValidate() {
         Scanner input = new Scanner(System.in);
         Patient ret = null;
@@ -211,7 +207,7 @@ public class ChocANTerminal extends fileReader {
                     }
 
     }
-
+*/
     /*
     --------------------------------------------------------------------------------------------------------------------
      */
