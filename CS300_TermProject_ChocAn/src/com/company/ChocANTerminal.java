@@ -60,15 +60,18 @@ public class ChocANTerminal extends fileReader {
 
         Provider match = providerDirectoryObj.retrieve(id);
 
-        int len = Integer.parseInt(filedata[0]);
         int fileLength = filedata.length;
+        int f =1;
 
-        for(int i = 1; i <= len; ++i){
+        for(int i = 0; f < fileLength; ++i){
             String[] line = filedata[i].split(":");
             basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
             providerDirectoryObj.insertService(id,temp);
             ++i;//parse the next line
 
+            if(i >= fileLength){
+                break;
+            }
             line = filedata[i].split(":");
             int  j = line.length;
             while(i < fileLength && j == 4){
@@ -82,6 +85,7 @@ public class ChocANTerminal extends fileReader {
                 }
                 else{
                     j = 0;
+                    ++f;
                 }
 
             }

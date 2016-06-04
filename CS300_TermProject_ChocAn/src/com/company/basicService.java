@@ -54,6 +54,9 @@ public class basicService {
     }
 
     public void displayAllPatients(){
+        if(patientListTree == null){
+            return;
+        }
         Iterator<basicPatient> it = patientListTree.iterator();
 
         while (it.hasNext()) {
