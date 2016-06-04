@@ -3,6 +3,7 @@ package company;
 import javax.imageio.IIOException;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Created by hERO on 6/1/16.
@@ -18,6 +19,90 @@ public class ChocANTerminal extends fileReader {
         patientDirectoryObj = new patientDirectory();
         serviceDirectoryObj = new serviceDirectory();
         providerDirectoryObj = new providerDirectory();
+
+        Scanner input = new Scanner(System.in);
+        boolean again = true;
+        int option = 0;
+        char response = '\0';
+
+        System.out.println("Hello welcome to the ChocAn Data Processing Software!");
+
+        do {
+            System.out.println("Please select an option you would like to execute:");
+            System.out.println("1.  Validate a member/patient");
+            System.out.println("2.  Bill a member/patient");
+            System.out.println("3.  Request copy of provider directory");
+            System.out.println("4.  Add a service");
+            System.out.println("5.  Remove a service");
+            System.out.println("6.  Add a member");
+            System.out.println("7.  Remove a member");
+            System.out.println("8.  Update a member");
+            System.out.println("9.  Add a provider");
+            System.out.println("10. Remove a provider");
+            System.out.println("11. Update a provider");
+            System.out.println("12. Show provider list");
+            System.out.println("13. Show member list");
+            System.out.println("14. Generate report for provider");
+            System.out.println("15. Generate report for member");
+
+            do {
+                System.out.print("Please enter a command: ");
+                option = input.nextInt();
+            }while(option < 1 || option > 15);
+
+            switch(option){
+                case 1:
+                    System.out.print("Enter member/patient number to validate: ");
+                    int patientID = input.nextInt();
+                    if(1 == patientDirectoryObj.validatePatient(patientID))
+                        System.out.println("Member/patient exists and is validated!");
+                    else
+                        System.out.println("Member/patient does not exist or is invalid!");
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    providerDirectoryObj.displayAll();
+                    break;
+                case 4:
+                    serviceDirectoryObj.insertService();
+                    break;
+                case 5:
+                    serviceDirectoryObj.deleteService();
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                case 15:
+                    break;
+                default:
+                    break;
+
+            }
+
+            System.out.print("Would you like enter another command? (Y/N) ");
+            response = input.next().charAt(0);
+            if(response == 'N')
+                again = false;
+
+        }while(again);
+
+
 
         //populateServiceDirectory();
         populateProviderDirectory(); //should work when retrieve is done for pDir

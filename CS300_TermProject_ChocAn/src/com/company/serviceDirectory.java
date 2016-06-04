@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 
 /**
  * Created by eynis on 5/15/16.
@@ -58,8 +59,35 @@ public class serviceDirectory extends fileReader{
         return 0;
     }
 
+    public void insertService(){
+        Scanner input = new Scanner(System.in);
+        int serNum = 0;
+        do {
+            System.out.print("Enter new service number: ");
+             serNum = input.nextInt();
+        }while(!serDir.containsKey(serNum));
+        System.out.print("Enter new service name: ");
+        String serName = input.next();
+        System.out.print("Enter new service cost: ");
+        int serCost = input.nextInt();
+        System.out.print("Enter service provider: ");
+        String serProv = input.next();
+        insertService(new Service(serProv, serName, serNum, serCost));
+    }
+
     public void insertService(Service toAdd){
         serDir.put(toAdd.getServiceNumber(), new Service(toAdd));
+    }
+
+    public void deleteService(){
+        Scanner input = new Scanner(System.in);
+        int serNum = 0;
+        System.out.print("Enter service number to delete: ");
+        serNum = input.nextInt();
+        if(deleteService(serNum) == 1)
+            System.out.println("Service successfully deleted!");
+        else
+            System.out.println("No such service was found!");
     }
 
     //This function deletes a service given the service number as a key to HashMap

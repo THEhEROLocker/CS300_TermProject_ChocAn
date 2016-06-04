@@ -78,6 +78,35 @@ public class patientDirectory extends fileReader {
         return 0;
     }
 
+    public void insertPatient(){
+        Scanner input = new Scanner(System.in);
+        int memID;
+
+        System.out.print("Enter member name: ");
+        String memName = input.next();
+
+        do{
+            System.out.print("Enter member ID number: ");
+            memID = input.nextInt();
+        }while(patDir.containsKey(memID));
+
+        System.out.print("Enter member address: ");
+        String memAd = input.next();
+
+        System.out.print("Enter member city: ");
+        String memCt = input.next();
+
+        System.out.print("Enter member state: ");
+        String memSt = input.next();
+
+        System.out.print("Enter member zip: ");
+        int memZp = input.nextInt();
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+        Date date = new Date();
+        insertPatient(new Patient(memName, memID, memAd, memCt, memSt, memZp, 0, df.format(date)));
+    }
+
     public void insertPatient(Patient toAdd) {
         patDir.put(toAdd.getPatientNumber(), new Patient(toAdd));
     }
