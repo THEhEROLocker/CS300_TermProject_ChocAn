@@ -7,6 +7,8 @@ package company;
 import java.io.IOException;
 import java.util.Scanner;
 
+//test class tests primary display, insert, retrieve, and remove functions for classes pertaining
+//to members, providers, and services.
 public class test {
     private patientDirectory testMem;
     private providerDirectory testProv;
@@ -19,8 +21,8 @@ public class test {
         testServ =new serviceDirectory();
     }
 
-    public void testDisplay(){
-        System.out.print("Member directory display: ");
+    public void testDisplayAll(){
+        System.out.print("Member directory display: ");         //Test class tests displayAll functions for member, provider, and service directory
         testMem.displayAll();
 
         System.out.print("Provider directory display: ");
@@ -29,5 +31,18 @@ public class test {
         System.out.print("Service directory display: ");
         testServ.displayAll();
     }
+
+    public void testInsert(){
+        System.out.print("Member directory insert ");         //Test class tests insert functions for member, provider, and service directory
+        testMem.insertPatient();
+
+        System.out.print("Provider directory insert ");
+        testProv.insertProvider();
+
+        System.out.print("Service directory insert ");
+        testServ.insertService();
+
+    }
+
 
 }
