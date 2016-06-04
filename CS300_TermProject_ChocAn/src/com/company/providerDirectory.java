@@ -44,6 +44,12 @@ public class providerDirectory extends fileReader{
         provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }
 
+    public int validateProvider(int provNum){
+        if(provDir.containsKey(provNum))
+            return 1;
+        return 0;
+    }
+
     public void insertProvider(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the name of the provider: ");
