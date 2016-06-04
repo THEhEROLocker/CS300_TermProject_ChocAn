@@ -93,7 +93,7 @@ public class ChocANTerminal extends fileReader {
 
                     System.out.print("Would you like enter another command? (Y/N) ");
                     response = input.next().charAt(0);
-                    if(response == 'N')
+                    if(response =='N')
                         again2 = false;
                 }while(again2);
             }
