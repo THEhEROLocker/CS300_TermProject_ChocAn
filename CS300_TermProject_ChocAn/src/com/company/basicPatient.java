@@ -16,6 +16,13 @@ public class basicPatient {
         patientNumber = 0;
     }
 
+    public basicPatient(Patient toClone){
+        this.name = toClone.name;
+        this.patientNumber = toClone.patientNumber;
+        this.bill = toClone.bill;
+        this.dateOfService = toClone.dateOfService;
+    }
+
     public basicPatient(String name, int patientNumber, float bill, String dateOfService) {
         this.name = name;
         this.patientNumber = patientNumber;

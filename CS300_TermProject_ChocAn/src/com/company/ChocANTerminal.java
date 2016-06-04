@@ -97,7 +97,7 @@ public class ChocANTerminal extends fileReader {
                         again2 = false;
                 }while(again2);
             }
-            else {
+            if(option == 2){
                 do {
                     System.out.println("Please select an option you would like to execute:");
                     System.out.println("1.  Add a service");
@@ -209,6 +209,8 @@ public class ChocANTerminal extends fileReader {
             toBill.addService(toAdd);
             float serCost = memSer.getServiceCost();
             toBill.addBill(serCost);
+            basicPatient patToAdd = new basicPatient(toBill);
+            memProv.addPatient(serID, patToAdd);
         }
     }
 
