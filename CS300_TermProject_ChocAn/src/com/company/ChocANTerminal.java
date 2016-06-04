@@ -175,7 +175,7 @@ public class ChocANTerminal extends fileReader {
         providerDirectoryObj.displayAll();
 
     }
-
+/*
     private void memberValidate() {
         Scanner input = new Scanner(System.in);
         Patient ret = null;
@@ -211,7 +211,7 @@ public class ChocANTerminal extends fileReader {
                     }
 
     }
-
+*/
     /*
     --------------------------------------------------------------------------------------------------------------------
      */
