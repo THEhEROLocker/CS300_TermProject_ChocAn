@@ -44,5 +44,14 @@ public class test {
 
     }
 
+    public void testRemove() {
+        System.out.print("Member directory remove");         //Test class tests remove functions for member, provider, and service directory
+        testMem.deletePatient();
 
+        System.out.print("Provider directory remove ");
+        testProv.removeProvider();
+
+        System.out.print("Service directory remove");
+        testServ.deleteService();
+    }
 }
