@@ -82,6 +82,7 @@ public class ChocANTerminal extends fileReader {
                     providerDirectoryObj.insertProvider();
                     break;
                 case 10:
+                    providerDirectoryObj.removeProvider();
                     break;
                 case 11:
                     break;

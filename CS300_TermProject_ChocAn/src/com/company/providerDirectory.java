@@ -33,6 +33,22 @@ public class providerDirectory extends fileReader{
         }
     }
 
+    public void removeProvider(){
+        int ID = 0;
+        Provider temp = null;
+        Scanner input = new Scanner(System.in);
+
+        do {
+            displayAll();
+            System.out.println();
+            System.out.println("Enter the ID of the provider that you wish to remove: ");
+            ID = input.nextInt();
+            temp = retrieve(ID);
+        }while (temp == null);
+
+        provDir.remove(temp.getProviderNumber());
+    }
+
     public Provider retrieve(int providerNumber){
         if (provDir.containsKey(providerNumber))
                 return provDir.get(providerNumber);
