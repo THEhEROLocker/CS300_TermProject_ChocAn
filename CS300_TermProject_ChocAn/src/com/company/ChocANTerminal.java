@@ -69,11 +69,12 @@ public class ChocANTerminal extends fileReader {
                     System.out.println("1.  Validate a member/patient");
                     System.out.println("2.  Bill a member/patient");
                     System.out.println("3.  Request copy of provider directory");
+                    System.out.println("4.  EXIT");
 
                     do {
                         System.out.print("Please enter a command: ");
                         option = input.nextInt();
-                    } while (option < 1 || option > 3);
+                    } while (option < 1 || option > 4);
 
                     switch (option) {
                         case 1:
@@ -114,6 +115,7 @@ public class ChocANTerminal extends fileReader {
                     System.out.println("9.  Show member list");
                     System.out.println("10. Generate report for provider");
                     System.out.println("11. Generate report for member");
+                    System.out.println("12. EXIT");
 
                     do {
                         System.out.print("Please enter a command: ");
