@@ -240,5 +240,10 @@ public class ChocANTerminal extends fileReader {
     }
     private void retrieveMemberInfo(){
         Scanner input = new Scanner (System.in);
+
+        System.out.print("Please enter the member ID to display service information.");
+        int idSearch = input.nextInt();
+
+
     }
 }
