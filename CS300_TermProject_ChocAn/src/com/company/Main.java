@@ -33,12 +33,13 @@ public class Main {
         top_menu();
     */
 
-
-        //run test class which tests member, provider,and service directory functions
+        /*
+        run test class which tests member, provider,and service directory functions
         test testChoc = new test();
         testChoc.testDisplayAll();
         testChoc.testInsert();
         testChoc.testRemove();
         testChoc.testUpdate();
+        */
     }
 }
