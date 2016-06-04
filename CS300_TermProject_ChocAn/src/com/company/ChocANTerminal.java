@@ -191,7 +191,7 @@ public class ChocANTerminal extends fileReader {
 
     }
 
-    private void billMember() {
+    public void billMember() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter member ID to bill: ");
         int memID = input.nextInt();

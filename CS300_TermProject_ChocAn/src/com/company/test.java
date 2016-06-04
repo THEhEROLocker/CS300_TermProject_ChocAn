@@ -15,7 +15,7 @@ public class test {
     private serviceDirectory testServ;
     private Patient testPat;
     private Provider testProvider;
-
+    private ChocANTerminal testChocAn;
     public test(){
         Scanner input = new Scanner(System.in);
         testMem = new patientDirectory();
@@ -23,6 +23,7 @@ public class test {
         testServ =new serviceDirectory();
         testPat = new Patient();
         testProvider = new Provider();
+        testChocAn= new ChocANTerminal();
     }
 
     public void testDisplayAll(){
@@ -74,5 +75,9 @@ public class test {
 
         System.out.print("Test Provider display\n");
         testProvider.display();
+    }
+
+    public void testBill(){                                 //testing member billing
+        testChocAn.billMember();
     }
 }
