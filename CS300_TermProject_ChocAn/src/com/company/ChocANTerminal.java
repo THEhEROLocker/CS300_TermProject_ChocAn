@@ -3,6 +3,9 @@ package company;
 import javax.imageio.IIOException;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -196,6 +199,9 @@ public class ChocANTerminal extends fileReader {
         int serID = input.nextInt();
         System.out.print("Enter provider ID: ");
         int provID = input.nextInt();
+        System.out.print("Enter date service was provided (dd/MM/yy): ");
+        String dateOfService = input.next() + " : ";
+
 
         Patient toBill = patientDirectoryObj.retrievePatient(memID);
         Service memSer = serviceDirectoryObj.retrieveService(serID);
@@ -209,7 +215,11 @@ public class ChocANTerminal extends fileReader {
             toBill.addService(toAdd);
             float serCost = memSer.getServiceCost();
             toBill.addBill(serCost);
+            DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+            Date date = new Date();
+            dateOfService = dateOfService + df.format(date);
             basicPatient patToAdd = new basicPatient(toBill);
+            patToAdd.setDateOfService(dateOfService);
             memProv.addPatient(serID, patToAdd);
         }
     }

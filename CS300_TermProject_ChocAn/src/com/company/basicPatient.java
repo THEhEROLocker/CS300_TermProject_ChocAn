@@ -23,6 +23,10 @@ public class basicPatient {
         this.dateOfService = toClone.dateOfService;
     }
 
+    public void setDateOfService(String dateOfService) {
+        this.dateOfService = dateOfService;
+    }
+
     public basicPatient(String name, int patientNumber, float bill, String dateOfService) {
         this.name = name;
         this.patientNumber = patientNumber;
