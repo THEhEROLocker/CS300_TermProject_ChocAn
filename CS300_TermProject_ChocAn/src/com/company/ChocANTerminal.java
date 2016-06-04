@@ -22,8 +22,8 @@ public class ChocANTerminal extends fileReader {
         serviceDirectoryObj = new serviceDirectory();
         providerDirectoryObj = new providerDirectory();
 
-        populateServiceDirectory();  //populates the list in service directory
-        populateProviderDirectory(); //populates the list of lists in provided directory
+        //populateServiceDirectory();  //populates the list in service directory
+        //populateProviderDirectory(); //populates the list of lists in provided directory
 
         Scanner input = new Scanner(System.in);
         boolean again = true;
