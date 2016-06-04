@@ -237,6 +237,7 @@ public class ChocANTerminal extends fileReader {
         }
         return array;
     }
-
-
+    private void retrieveMemberInfo(){
+        Scanner input = new Scanner (System.in);
+    }
 }
