@@ -19,6 +19,62 @@ public class Provider{
 
     public Provider() {}
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProviderNumber(int providerNumber) {
+        this.providerNumber = providerNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public int getTotalConsultation() {
+        return totalConsultation;
+    }
+
+    public void setTotalConsultation(int totalConsultation) {
+        this.totalConsultation = totalConsultation;
+    }
+
+    public double getWeeklyFees() {
+        return weeklyFees;
+    }
+
+    public void setWeeklyFees(double weeklyFees) {
+        this.weeklyFees = weeklyFees;
+    }
+
     public Provider(Provider toClone){
         this.name = toClone.name;
         this.providerNumber = toClone.providerNumber;
