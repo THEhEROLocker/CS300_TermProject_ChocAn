@@ -82,6 +82,7 @@ public class ChocANTerminal extends fileReader {
                                 System.out.println("Member/patient does not exist or is invalid!");
                             break;
                         case 2:
+                            billMember();
                             break;
                         case 3:
                             providerDirectoryObj.displayAll();
@@ -176,7 +177,7 @@ public class ChocANTerminal extends fileReader {
     private void write_all_data(){
 
         //write out all the Service data
-            writeOutServiceTXT();
+         //   String [] data = serviceDirectoryObj;
         //write out all the Patient Data
 
             //write out all the "People"
@@ -187,10 +188,29 @@ public class ChocANTerminal extends fileReader {
 
     }
 
-    private void writeOutServiceTXT(){
+    private void billMember() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter member ID to bill: ");
+        int memID = input.nextInt();
+        System.out.print("Enter service ID: ");
+        int serID = input.nextInt();
+        System.out.print("Enter provider ID: ");
+        int provID = input.nextInt();
 
+        Patient toBill = patientDirectoryObj.retrievePatient(memID);
+        Service memSer = serviceDirectoryObj.retrieveService(serID);
+        Provider memProv = providerDirectoryObj.retrieve(provID);
+
+        if (toBill == null || memSer == null || memProv == null) {
+            System.out.println("member ID or service ID invalid!");
+            return;
+        } else {
+            basicService toAdd = new basicService(memSer);
+            toBill.addService(toAdd);
+            float serCost = memSer.getServiceCost();
+            toBill.addBill(serCost);
+        }
     }
-
 
 /*
     private void memberValidate() {
