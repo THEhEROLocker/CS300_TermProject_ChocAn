@@ -79,6 +79,7 @@ public class ChocANTerminal extends fileReader {
                     patientDirectoryObj.updatePatient();
                     break;
                 case 9:
+                    providerDirectoryObj.insertProvider();
                     break;
                 case 10:
                     break;
