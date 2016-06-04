@@ -3,6 +3,9 @@ package company;
 import javax.imageio.IIOException;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -25,7 +28,6 @@ public class ChocANTerminal extends fileReader {
         populateServiceDirectory();  //populates the list in service directory
         populateProviderDirectory(); //populates the list of lists in provided directory
 
-        patientDirectoryObj.displayAll();
         Scanner input = new Scanner(System.in);
         boolean again = true;
         boolean again2 = true;
@@ -67,11 +69,12 @@ public class ChocANTerminal extends fileReader {
                     System.out.println("1.  Validate a member/patient");
                     System.out.println("2.  Bill a member/patient");
                     System.out.println("3.  Request copy of provider directory");
+                    System.out.println("4.  EXIT");
 
                     do {
                         System.out.print("Please enter a command: ");
                         option = input.nextInt();
-                    } while (option < 1 || option > 3);
+                    } while (option < 1 || option > 4);
 
                     switch (option) {
                         case 1:
@@ -94,11 +97,11 @@ public class ChocANTerminal extends fileReader {
 
                     System.out.print("Would you like enter another command? (Y/N) ");
                     response = input.next().charAt(0);
-                    if(response == 'N')
+                    if(response =='N')
                         again2 = false;
                 }while(again2);
             }
-            else {
+            if(option == 2){
                 do {
                     System.out.println("Please select an option you would like to execute:");
                     System.out.println("1.  Add a service");
@@ -112,6 +115,7 @@ public class ChocANTerminal extends fileReader {
                     System.out.println("9.  Show member list");
                     System.out.println("10. Generate report for provider");
                     System.out.println("11. Generate report for member");
+                    System.out.println("12. EXIT");
 
                     do {
                         System.out.print("Please enter a command: ");
@@ -188,7 +192,7 @@ public class ChocANTerminal extends fileReader {
 
     }
 
-    private void billMember() {
+    public void billMember() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter member ID to bill: ");
         int memID = input.nextInt();
@@ -196,6 +200,9 @@ public class ChocANTerminal extends fileReader {
         int serID = input.nextInt();
         System.out.print("Enter provider ID: ");
         int provID = input.nextInt();
+        System.out.print("Enter date service was provided (dd/MM/yy): ");
+        String dateOfService = input.next() + " : ";
+
 
         Patient toBill = patientDirectoryObj.retrievePatient(memID);
         Service memSer = serviceDirectoryObj.retrieveService(serID);
@@ -209,6 +216,12 @@ public class ChocANTerminal extends fileReader {
             toBill.addService(toAdd);
             float serCost = memSer.getServiceCost();
             toBill.addBill(serCost);
+            DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+            Date date = new Date();
+            dateOfService = dateOfService + df.format(date);
+            basicPatient patToAdd = new basicPatient(toBill);
+            patToAdd.setDateOfService(dateOfService);
+            memProv.addPatient(serID, patToAdd);
         }
     }
 

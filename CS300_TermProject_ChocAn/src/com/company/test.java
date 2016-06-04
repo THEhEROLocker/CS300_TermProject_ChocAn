@@ -13,12 +13,17 @@ public class test {
     private patientDirectory testMem;
     private providerDirectory testProv;
     private serviceDirectory testServ;
-
+    private Patient testPat;
+    private Provider testProvider;
+    private ChocANTerminal testChocAn;
     public test(){
         Scanner input = new Scanner(System.in);
         testMem = new patientDirectory();
         testProv =new providerDirectory();
         testServ =new serviceDirectory();
+        testPat = new Patient();
+        testProvider = new Provider();
+        testChocAn= new ChocANTerminal();
     }
 
     public void testDisplayAll(){
@@ -63,4 +68,16 @@ public class test {
         testProv.updateProvider();
     }
 
+    public void displayIndividual(){
+        System.out.print("Test Member display \n");         //Test class tests display functions for member and provider
+        testPat.display();
+        testPat.displayService();
+
+        System.out.print("Test Provider display\n");
+        testProvider.display();
+    }
+
+    public void testBill(){                                 //testing member billing
+        testChocAn.billMember();
+    }       //test member billing
 }

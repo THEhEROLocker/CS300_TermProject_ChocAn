@@ -34,11 +34,14 @@ public class Main {
     */
 
 
-        //run test class which tests member, provider,and service directory functions
+       // run test class which tests member, provider,and service directory functions
+
         test testChoc = new test();
-        testChoc.testDisplayAll();
+       /* testChoc.testDisplayAll();
         testChoc.testInsert();
         testChoc.testRemove();
         testChoc.testUpdate();
+        */
+        testChoc.testBill();
     }
 }
