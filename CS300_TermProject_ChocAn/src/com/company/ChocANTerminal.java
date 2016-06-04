@@ -71,13 +71,16 @@ public class ChocANTerminal extends fileReader {
                     serviceDirectoryObj.deleteService();
                     break;
                 case 6:
+                    patientDirectoryObj.insertPatient();
                     break;
                 case 7:
+                    patientDirectoryObj.deletePatient();
                     break;
                 case 8:
+                    patientDirectoryObj.updatePatient();
                     break;
                 case 9:
-
+                    providerDirectoryObj.insertProvider();
                     break;
                 case 10:
                     break;

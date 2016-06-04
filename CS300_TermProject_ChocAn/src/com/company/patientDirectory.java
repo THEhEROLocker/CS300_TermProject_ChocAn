@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * Created by rujo2 on 5/15/16.
@@ -111,6 +112,16 @@ public class patientDirectory extends fileReader {
         patDir.put(toAdd.getPatientNumber(), new Patient(toAdd));
     }
 
+    public void deletePatient(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter member/patient ID to delete: ");
+        int memID = input.nextInt();
+        if(deletePatient(memID) == 1)
+            System.out.println("Member/patient successfully deleted!");
+        else
+            System.out.println("Member/patient not deleted/not found!");
+    }
+
     public int deletePatient(int toDelete) {
         if (patDir.containsKey(toDelete)) { //Check to see if the service exists based on its key
             patDir.remove(toDelete); //remove from HashMap
@@ -121,6 +132,18 @@ public class patientDirectory extends fileReader {
 
     public Patient retrievePatient(int toRetrieve) {
         return patDir.get(toRetrieve);
+    }
+
+    public void updatePatient(){
+        Scanner input = new Scanner(System.in);
+        int memID;
+        do {
+            System.out.print("Enter member/patient ID to update: ");
+            memID = input.nextInt();
+        }while(patDir.containsKey(memID));
+
+        updatePatient(memID);
+
     }
 
     public void updatePatient(int toUpdate) {
