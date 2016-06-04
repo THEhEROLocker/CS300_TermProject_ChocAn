@@ -1,7 +1,7 @@
 package company;
 
 /**
- * Created by Rudd on 6/3/16.
+ * Created by Rudd Johnson on 6/3/16.
  */
 
 import java.io.IOException;
@@ -53,5 +53,13 @@ public class test {
 
         System.out.print("Service directory remove");
         testServ.deleteService();
+    }
+
+    public void testUpdate() {
+        System.out.print("Member directory update");         //Test class tests update functions for member, provider directory
+        testMem.updatePatient();
+
+        System.out.print("Provider directory update ");
+        testProv.updateProvider();
     }
 }
