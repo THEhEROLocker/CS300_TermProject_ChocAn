@@ -65,7 +65,7 @@ public class serviceDirectory extends fileReader{
         do {
             System.out.print("Enter new service number: ");
              serNum = input.nextInt();
-        }while(serDir.containsKey(serNum));
+        }while(!serDir.containsKey(serNum));
         System.out.print("Enter new service name: ");
         String serName = input.next();
         System.out.print("Enter new service cost: ");
@@ -77,6 +77,17 @@ public class serviceDirectory extends fileReader{
 
     public void insertService(Service toAdd){
         serDir.put(toAdd.getServiceNumber(), new Service(toAdd));
+    }
+
+    public void deleteService(){
+        Scanner input = new Scanner(System.in);
+        int serNum = 0;
+        System.out.print("Enter service number to delete: ");
+        serNum = input.nextInt();
+        if(deleteService(serNum) == 1)
+            System.out.println("Service successfully deleted!");
+        else
+            System.out.println("No such service was found!");
     }
 
     //This function deletes a service given the service number as a key to HashMap

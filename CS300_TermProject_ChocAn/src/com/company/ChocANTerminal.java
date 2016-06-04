@@ -68,6 +68,7 @@ public class ChocANTerminal extends fileReader {
                     serviceDirectoryObj.insertService();
                     break;
                 case 5:
+                    serviceDirectoryObj.deleteService();
                     break;
                 case 6:
                     break;
