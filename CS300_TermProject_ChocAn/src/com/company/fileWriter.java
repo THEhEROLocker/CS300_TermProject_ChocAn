@@ -21,6 +21,9 @@ public class fileWriter {
     public void write_to_file(String []writeData){
         try {
             PrintWriter writer = new PrintWriter(filename, "UTF-8");
+            for(int i = 0; i < writeData.length; ++i){
+                writer.println(writeData[i]);
+            }
             writer.close();
         }catch (UnsupportedEncodingException f){
             f.getMessage();
