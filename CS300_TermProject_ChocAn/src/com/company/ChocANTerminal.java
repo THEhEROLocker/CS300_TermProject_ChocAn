@@ -27,6 +27,7 @@ public class ChocANTerminal extends fileReader {
         int option = 0;
         char response = '\0';
 
+        //User interface
         System.out.println("Hello welcome to the ChocAn Data Processing Software!");
 
         do {
