@@ -122,7 +122,7 @@ public class Patient extends basicPatient {
             return temp;
         }
 
-        head = addService(head.getNext(),Service);
+        head.setNext(addService(head.getNext(),Service));
 
         head.getNext().setPrevious(head);
 

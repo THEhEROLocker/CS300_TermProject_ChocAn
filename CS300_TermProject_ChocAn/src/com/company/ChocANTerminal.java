@@ -25,6 +25,7 @@ public class ChocANTerminal extends fileReader {
         populateServiceDirectory();  //populates the list in service directory
         populateProviderDirectory(); //populates the list of lists in provided directory
 
+        patientDirectoryObj.displayAll();
         Scanner input = new Scanner(System.in);
         boolean again = true;
         boolean again2 = true;
@@ -171,7 +172,6 @@ public class ChocANTerminal extends fileReader {
 
         write_all_data();
 
-
     }
 
     private void write_all_data(){
@@ -285,8 +285,27 @@ public class ChocANTerminal extends fileReader {
         int fileLength = filedata.length;
         int f =1;
 
-        for(int i = 0; f < fileLength; ++i){
-            String[] line = filedata[i].split(":");
+        basicService temp = null;
+
+        for(int i = 0; i < fileLength; ++i){
+
+                String[] line = filedata[i].split(":");
+                if(line.length == 3){
+                    temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
+                    providerDirectoryObj.insertService(id,temp);
+                }
+                else if(line.length == 4){
+                     basicPatient temp2 = new basicPatient(line[1],Integer.parseInt(line[0])
+                                         ,Float.parseFloat(line[2]),line[3]);
+                providerDirectoryObj.insertPatient(id,temp.getServiceNumber(),temp2);
+                }
+
+
+
+
+
+            /*
+             String[] line = filedata[i].split(":");
             basicService temp = new basicService(line[0],Integer.parseInt(line[1]),line[2]);
             providerDirectoryObj.insertService(id,temp);
             ++i;//parse the next line
@@ -294,10 +313,9 @@ public class ChocANTerminal extends fileReader {
             if(i >= fileLength){
                 break;
             }
-            line = filedata[i].split(":");
-            int  j = line.length;
-            while(i < fileLength && j == 4){
-                basicPatient temp2 = new basicPatient(line[1],Integer.parseInt(line[0])
+
+               basicPatient temp2 = new basicPatient(line[1],Integer.parseInt(line[0])
+
                                          ,Float.parseFloat(line[2]),line[3]);
                 providerDirectoryObj.insertPatient(id,temp.getServiceNumber(),temp2);
                 if(i+1 < fileLength && filedata[i+1].split(":").length == 4){
@@ -310,7 +328,8 @@ public class ChocANTerminal extends fileReader {
                     ++f;
                 }
 
-            }
+            }*/
+
         }
         return 1;
     }
