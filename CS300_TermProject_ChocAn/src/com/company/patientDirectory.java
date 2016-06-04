@@ -131,7 +131,11 @@ public class patientDirectory extends fileReader {
     }
 
     public Patient retrievePatient(int toRetrieve) {
+
+        if (patDir.containsKey(toRetrieve))
         return patDir.get(toRetrieve);
+
+        return null;
     }
 
     public void updatePatient(){

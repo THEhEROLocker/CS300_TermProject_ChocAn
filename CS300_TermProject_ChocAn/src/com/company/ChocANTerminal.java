@@ -140,6 +140,7 @@ public class ChocANTerminal extends fileReader {
                             providerDirectoryObj.displayAll();
                             break;
                         case 11:
+                            retrieveMemberInfo();
                             break;
                         default:
                             break;
@@ -297,6 +298,11 @@ public class ChocANTerminal extends fileReader {
         System.out.print("Please enter the member ID to display service information.");
         int idSearch = input.nextInt();
 
+       Patient search = patientDirectoryObj.retrievePatient(idSearch);
 
+        if(search != null)
+        {
+            search.displayService();
+        }
     }
 }
