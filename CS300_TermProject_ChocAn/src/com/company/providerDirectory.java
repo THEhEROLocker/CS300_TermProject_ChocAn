@@ -44,6 +44,39 @@ public class providerDirectory extends fileReader{
         provDir.put(toAdd.getProviderNumber(), new Provider(toAdd));
     }
 
+    public void insertProvider(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the name of the provider: ");
+        String name  = input.nextLine();
+        System.out.print("Enter the user ID: ");
+        String memID;
+        int len = 0;
+
+        do{
+            System.out.print("Enter member ID number: ");
+            memID = input.nextLine();
+            len = memID.length();
+        }while(provDir.containsKey(memID) && len == 6 );
+        System.out.print("Enter the address: ");
+        String address = input.nextLine();
+
+        System.out.print("What city you from: ");
+        String city = input.nextLine();
+
+        System.out.print("What state you from: ");
+        String state = input.nextLine();
+
+        System.out.print("Enter the zip code: ");
+        int zip = input.nextInt();
+
+        System.out.print("Enter the weekly prices: ");
+        double price = input.nextDouble();
+
+        Provider toAdd = new Provider(name,Integer.parseInt(memID),address,city,state,zip,0,price);
+
+        insertProvider(toAdd);
+    }
+
     public int insertService(int providerNumber, basicService toAdd){
         if (provDir.containsKey(providerNumber)) { //Check to see if the service exists based on its key
             provDir.get(providerNumber).addService(toAdd);
