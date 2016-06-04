@@ -14,11 +14,16 @@ public class ChocANTerminal extends fileReader {
     private serviceDirectory serviceDirectoryObj = null;
     private providerDirectory providerDirectoryObj = null;
 
+    private fileWriter writer = null;
+
 
     public ChocANTerminal(){
         patientDirectoryObj = new patientDirectory();
         serviceDirectoryObj = new serviceDirectory();
         providerDirectoryObj = new providerDirectory();
+
+        populateServiceDirectory();  //populates the list in service directory
+        populateProviderDirectory(); //populates the list of lists in provided directory
 
         Scanner input = new Scanner(System.in);
         boolean again = true;
@@ -27,6 +32,7 @@ public class ChocANTerminal extends fileReader {
         int option = 0;
         char response = '\0';
 
+        //User interface
         System.out.println("Hello welcome to the ChocAn Data Processing Software!");
 
         do {
@@ -163,16 +169,24 @@ public class ChocANTerminal extends fileReader {
                 again = false;
         }while(again);
 
+        write_all_data();
 
-
-        //populateServiceDirectory();
-        populateProviderDirectory(); //should work when retrieve is done for pDir
-
-        //patientDirectoryObj.displayAll();
-        providerDirectoryObj.displayAll();
 
     }
 
+    private void write_all_data(){
+
+        //write out all the Service data
+         //   String [] data = serviceDirectoryObj;
+        //write out all the Patient Data
+
+            //write out all the "People"
+
+        //write out all the Provider data
+
+            //write out all the "Providers"
+
+    }
 
     private void billMember() {
         Scanner input = new Scanner(System.in);
@@ -197,7 +211,6 @@ public class ChocANTerminal extends fileReader {
             toBill.addBill(serCost);
         }
     }
-
 
 /*
     private void memberValidate() {
