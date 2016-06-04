@@ -79,5 +79,5 @@ public class test {
 
     public void testBill(){                                 //testing member billing
         testChocAn.billMember();
-    }
+    }       //test member billing
 }
